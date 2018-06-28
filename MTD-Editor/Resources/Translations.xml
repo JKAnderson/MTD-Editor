@@ -1,0 +1,1758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Whatever you do, don't autoformat this file -->
+<descriptions>
+  <description>
+    <jp>キャラ用　【基本マテリアル】
+　　　ディフューズ / バンプ</jp>
+    <en>For Character 【Basic Material】
+　　　Diffuse / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【基本マテリアル】
+　　　ディフューズのみ / ノーライト</jp>
+    <en>For Character 【Basic Material】
+　　　Diffuse only / no light</en>
+  </description>
+  <description>
+    <jp>キャラ用　【基本マテリアル】
+　　　ディフューズのみ</jp>
+    <en>For Character 【Basic Material】
+　　　Diffuse only</en>
+  </description>
+  <description>
+    <jp>キャラ用　【基本マテリアル】
+　　　ディフューズのみ / 半透明</jp>
+    <en>For Character 【Basic Material】
+　　　Diffuse only / translucent</en>
+  </description>
+  <description>
+    <jp>キャラ用　【基本マテリアル】
+　　　ディフューズのみ / α抜き</jp>
+    <en>For Character 【Basic Material】
+　　　Diffuse only / without α</en>
+  </description>
+  <description>
+    <jp>キャラ用　【艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ</jp>
+    <en>For characters [No matte leather material (specular weakest)]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For characters [No matte leather material (specular weakest)]
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>キャラ用　【艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ/ ライトテクスチャ / スキン</jp>
+    <en>For characters [No matte leather material (specular weakest)]
+　　　Specular / bump / light texture / skin</en>
+  </description>
+  <description>
+    <jp>キャラ用　【艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ  /  ライト  /α抜き　/ スキン</jp>
+    <en>For characters [No matte leather material (specular weakest)]
+　　　Specular / bump / light / no alpha / skin</en>
+  </description>
+  <description>
+    <jp>キャラ用　【なめし革系マテリアル　（スペキュラー弱）】
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For characters [tanned leather material (weak specular)]
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>キャラ用　【なめし皮系マテリアル　（スペキュラー弱）】
+　　　スペキュラー / バンプ</jp>
+    <en>For characters [tanned skin type material (weak specular)]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【なめし革系マテリアル　（スペキュラー弱）】
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For characters [tanned leather material (weak specular)]
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>キャラ用　【金属系マテリアル　（スペキュラー中）】
+　　　スペキュラー / バンプ</jp>
+    <en>For characters [metal material (in specular)]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【金属系マテリアル　（スペキュラー中）】
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For characters [metal material (in specular)]
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>キャラ用　【金属系マテリアル　（スペキュラー中）】
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For characters [metal material (in specular)]
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>キャラ用　【ボロ布系マテリアル　（スペキュラー弱）】DetailBump
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For characters 【Boro fabric type material (weak specular)】 DetailBump
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>キャラ用　【ボロ布系マテリアル　（スペキュラー弱）】DetailBump
+　　　スペキュラー / バンプ</jp>
+    <en>For characters 【Boro fabric type material (weak specular)】 DetailBump
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ
+
+   眼球などに使用してください</jp>
+    <en>For characters [Wet system material (strong specular)]
+　　　Specular / bump
+
+   Please use it for the eyeball etc.</en>
+  </description>
+  <description>
+    <jp>キャラ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ / α抜き / 
+
+   眼球などに使用してください</jp>
+    <en>For characters [Wet system material (strong specular)]
+　　　Specular / bump / without a / 
+
+   Please use it for the eyeball etc.</en>
+  </description>
+  <description>
+    <jp>キャラ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ / マルチテクスチャ</jp>
+    <en>For characters [Wet system material (strong specular)]
+　　　Specular / bump / multi-texture</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+加算　ライトなし</jp>
+    <en>For SFX 【Standard Material】
+No addition light</en>
+  </description>
+  <description>
+    <jp>ブラックゴースト用パラメータ</jp>
+    <en>Parameters for Black Ghost</en>
+  </description>
+  <description>
+    <jp>ホワイトゴースト用パラメータ</jp>
+    <en>Parameters for white ghost</en>
+  </description>
+  <description>
+    <jp>キャラ用　【c2231_ファイヤーデーモン専用】
+　　　スペキュラー / バンプ</jp>
+    <en>For Character 【c 2231 _ Fire Demon Only】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【アイアンゴーレム　（スペキュラー中）】DetailBump
+　　　スペキュラー / バンプ</jp>
+    <en>For characters 【Iron golem (in specular)】 DetailBump
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【加算　ゴースト】
+　　　スペキュラー / バンプ / 加算</jp>
+    <en>For Character 【Additive Ghost】
+　　　Specular / bump / addition</en>
+  </description>
+  <description>
+    <jp>キャラ用　【スライム】
+　　　スペキュラー / バンプ /スキン</jp>
+    <en>For characters 【Slime】
+　　　Specular / bump / skin</en>
+  </description>
+  <description>
+    <jp>c3530_湖獣専用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ
+
+   眼球などに使用してください</jp>
+    <en>c3530_ lake beast exclusively 【Wet system material (strong specular)】
+　　　Specular / bump
+
+   Please use it for the eyeball etc.</en>
+  </description>
+  <description>
+    <jp>c3530_湖獣専用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ / α抜き / 
+
+   眼球などに使用してください</jp>
+    <en>c3530_ lake beast exclusively 【Wet system material (strong specular)】
+　　　Specular / bump / without a / 
+
+   Please use it for the eyeball etc.</en>
+  </description>
+  <description>
+    <jp>c5230_キングイザリス専用　【DitailBump対応_艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ</jp>
+    <en>c 5230 _ King isalis exclusive 【DitailBump correspondence _ matte leather material (specular weakest)】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【爛れ続けるもの_DitailBump対応_スペキュラ色強調・艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ</jp>
+    <en>For Character 【Continue to be ___ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【貪食ドラゴン_DetailBump_革系マテリアル　（スペキュラー弱）】
+　　　スペキュラー / バンプ</jp>
+    <en>For Character 【Phag of Dragon _DetailBump _ Leather Material (weak specular)】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【c5290_白竜シースの体　（スペキュラー強）】
+　　　スペキュラー / バンプ</jp>
+    <en>For characters 【c 5290 _ Body dragon sheath body (specular strong)】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【c5290_白竜シースの体　（スペキュラー強）】
+　　　スペキュラー / バンプ / マルチテクスチャ</jp>
+    <en>For characters 【c 5290 _ Body dragon sheath body (specular strong)】
+　　　Specular / bump / multi-texture</en>
+  </description>
+  <description>
+    <jp>キャラ用　【c5290_白竜シースの羽等　（スペキュラー弱）】
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For characters 【c 5290 _ White dragon sheath feather etc (weak specular)】
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>c5400_ボスイザリス専用　【DitailBump対応_スペキュラ色強調・艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ</jp>
+    <en>c5400_ Bosuisaris only [DitailBump correspondence _ specular color emphasis · matte leather material (specular weakest)]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【スペキュラ色強調・艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ</jp>
+    <en>For characters [specular color emphasis · matte leather type material (specular weakest)]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ</jp>
+    <en>For map [Standard material]
+　　　bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ / ライトテクスチャ</jp>
+    <en>For map [Standard material]
+　　　Bump / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ / ライトテクスチャ / 半透明</jp>
+    <en>For map [Standard material]
+　　　Bump / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ / マルチテクスチャ</jp>
+    <en>For map [Standard material]
+　　　Bump / Multi Texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ / ライトテクスチャ / α抜き</jp>
+    <en>For map [Standard material]
+　　　Bump / light texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ / マルチテクスチャ / ライトテクスチャ</jp>
+    <en>For map [Standard material]
+　　　Bump / Multi Texture / Light Texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ/半透明</jp>
+    <en>For map [Standard material]
+　　　Bump / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ / α抜き</jp>
+    <en>For map [Standard material]
+　　　Bump / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズのみ  / マルチテクスチャ / ライトテクスチャ</jp>
+    <en>For map [Standard material]
+　　　Diffuse Only / Multi Texture / Light Texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　ディフューズのみ</jp>
+    <en>For map [Standard material]
+　　Diffuse only</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズのみ / ライトテクスチャ</jp>
+    <en>For map [Standard material]
+　　　Diffuse only / Light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズ/ライトマップ/半透明</jp>
+    <en>For map [Standard material]
+　　　Diffuse / light map / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズのみ / ライトテクスチャ / α抜き</jp>
+    <en>For map [Standard material]
+　　　Diffuse only / Light texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズのみ  / マルチテクスチャ</jp>
+    <en>For map [Standard material]
+　　　Diffuse only / multi texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズのみ</jp>
+    <en>For map [Standard material]
+　　　Diffuse only</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズのみ / α抜き</jp>
+    <en>For map [Standard material]
+　　　Diffuse only / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / バンプ</jp>
+    <en>For map [wood-based material]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ</jp>
+    <en>For map [wood-based material]
+　　　Specular / bump / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ / 半透明</jp>
+    <en>For map [wood-based material]
+　　　Specular / bump / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ/α抜き</jp>
+    <en>For map [wood-based material]
+　　　Specular / bump / light texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ</jp>
+    <en>For map [wood-based material]
+　　　Specular / bump / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ</jp>
+    <en>For map [wood-based material]
+　　　Specular / bump / multi-texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For map [wood-based material]
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　スペキュラー / バンプ / α抜き</jp>
+    <en>For map [wood-based material]
+　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー</jp>
+    <en>For map [wood-based material]
+　　　Specular</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / ライトテクスチャ</jp>
+    <en>For map [wood-based material]
+　　　Specular / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / ライトテクスチャ / 半透明</jp>
+    <en>For map [wood-based material]
+　　　Specular / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー  / マルチテクスチャ / ライトテクスチャー</jp>
+    <en>For map [wood-based material]
+　　　Specular / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー  / マルチテクスチャ</jp>
+    <en>For map [wood-based material]
+　　　Specular / Multi Texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ</jp>
+    <en>For map [Stone material]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ / 半透明</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ / α抜き</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / light texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ / 半透明</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / multi-texture / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ / α抜き</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / multi-texture / light texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / multi-texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / 半透明</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / multi-texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / α抜き</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / multi-texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー</jp>
+    <en>For map [Stone material]
+　　　Specular</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / ライトテクスチャ</jp>
+    <en>For map [Stone material]
+　　　Specular / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / ライトテクスチャ / 半透明</jp>
+    <en>For map [Stone material]
+　　　Specular / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー  / マルチテクスチャ / ライトテクスチャー</jp>
+    <en>For map [Stone material]
+　　　Specular / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー  / マルチテクスチャ</jp>
+    <en>For map [Stone material]
+　　　Specular / Multi Texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー/半透明</jp>
+    <en>For map [Stone material]
+　　　Specular / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　テストマップで使用</jp>
+    <en>For map 【Water Material】
+　　　Used in test map</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ</jp>
+    <en>For map [Metal material]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ / 半透明</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ / 半透明</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / multi-texture / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ / α抜き</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / multi-texture / light texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / multi-texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / 半透明</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / multi-texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / α抜き</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / multi-texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー</jp>
+    <en>For map [Metal material]
+　　　Specular</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / ライトテクスチャ</jp>
+    <en>For map [Metal material]
+　　　Specular / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / ライトテクスチャ / 半透明</jp>
+    <en>For map [Metal material]
+　　　Specular / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー  / マルチテクスチャ / ライトテクスチャー</jp>
+    <en>For map [Metal material]
+　　　Specular / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー  / マルチテクスチャ</jp>
+    <en>For map [Metal material]
+　　　Specular / Multi Texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【雪マテリアル】
+　ハイトマップをリアルタイムでノーマルマップに</jp>
+    <en>For map [Snow Material]
+　Map the height map to real map in a normal map</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ / 半透明</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ / α抜き</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / light texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ / 半透明</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / multi-texture / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ / α抜き</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / multi-texture / light texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / multi-texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / 半透明</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / multi-texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / α抜き</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / multi-texture / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / ライトテクスチャ</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / ライトテクスチャ / 半透明</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー  / マルチテクスチャ / ライトテクスチャー</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー  / マルチテクスチャ</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / Multi Texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】</jp>
+    <en>For map 【Water Material】</en>
+  </description>
+  <description>
+    <jp>マップ用　【スライム】
+　　　スペキュラー / バンプ /ライト</jp>
+    <en>For map 【Slime】
+　　　Specular / bump / light</en>
+  </description>
+  <description>
+    <jp>マップ用　【ボリュームライト用】
+　　　ノーライト（ディフューズのみ） / 加算 / スクロール</jp>
+    <en>For map [for volume lights]
+　　　No light (diffuse only) / addition / scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m02_02 噴水
+　　（タイリング8m、α値30～70）</jp>
+    <en>For map 【Water Material】
+　　　m 02 _ 02 fountain
+　　(Tiling 8 m, α value 30 to 70)</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m02_01 湖</jp>
+    <en>For map 【Water Material】
+　　　m02 - 01 lake</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m02_00 河</jp>
+    <en>For map 【Water Material】
+　　　m 02 _ 00 river</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m02_02 水路</jp>
+    <en>For map 【Water Material】
+　　　m 02 _ 02 waterway</en>
+  </description>
+  <description>
+    <jp>アイテム用　【石材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ</jp>
+    <en>For items 【Stone material】
+　　　Specular / bump / light texture</en>
+  </description>
+  <description>
+    <jp>アイテム用　【石材系マテリアル】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトテクスチャ</jp>
+    <en>For items 【Stone material】
+　　　Specular / bump / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>m03用　【流れる雲】
+　　　ノーライト（ディフューズのみ）  / スクロール</jp>
+    <en>For m 03 【Flowing Cloud】
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>m03用　【天使のはしご】
+　　　ノーライト（ディフューズのみ）  / スクロール</jp>
+    <en>For m 03 【Angel ladder】
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【天球_明るい】
+　　　ノーライト（ディフューズのみ）</jp>
+    <en>For the map [Tenpyo _ Bright]
+　　　No light (diffuse only)</en>
+  </description>
+  <description>
+    <jp>マップ用　【天球】
+　　　ノーライト（ディフューズのみ）</jp>
+    <en>For the map [Tianba]
+　　　No light (diffuse only)</en>
+  </description>
+  <description>
+    <jp>マップ用　【光る水マテリアル】
+　　　m03</jp>
+    <en>For map [Shining Water Material]
+　　　m 03</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+B3用</jp>
+    <en>For map 【Water Material】
+For B3</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+B1B2用</jp>
+    <en>For map 【Water Material】
+For B1B2</en>
+  </description>
+  <description>
+    <jp>m03用　【天使のはしご】カットシーン用
+　　　ノーライト（ディフューズのみ）  / スクロール</jp>
+    <en>For m 03 【Angel ladder】 For cut scene
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>アイテム用　【石材系マテリアル】
+　　　スペキュラー / バンプ</jp>
+    <en>For items 【Stone material】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>アイテム用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ</jp>
+    <en>For item [glass, pottery material]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>A05用　【ボリュームライト用】
+　　　ノーライト（ディフューズのみ） / 加算 / スクロール</jp>
+    <en>For A05 【For volume light】
+　　　No light (diffuse only) / addition / scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　A05_00_00</jp>
+    <en>For map 【Water Material】
+　　A05_00_00</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　A05_01_00</jp>
+    <en>For map 【Water Material】
+　　A05 - 01 _ 00</en>
+  </description>
+  <description>
+    <jp>A05用　【染み出る水用】
+　　　ノーライト（ディフューズのみ） / 加算 / スクロール</jp>
+    <en>For A05 【For water leaking out】
+　　　No light (diffuse only) / addition / scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【溶岩】(ライト無いです)
+　　　m06　下層用</jp>
+    <en>For map [Lava] (There is no light)
+　　　m06 For lower layer</en>
+  </description>
+  <description>
+    <jp>マップ用　【溶岩_半透明】(ライト無いです)
+　　　m06 上層用</jp>
+    <en>For map [Lava _ semitransparent] (There is no light)
+　　　For m06 upper layer</en>
+  </description>
+  <description>
+    <jp>マップ用　【溶岩の揺らぎ】 
+　　　m06_02</jp>
+    <en>For map [Fluctuation of lava] 
+　　　m06 - 02</en>
+  </description>
+  <description>
+    <jp>マップ用　【溶岩の滝】(ライト無いです)
+　　　m06</jp>
+    <en>For map [Lava Falls] (There is no light)
+　　　m06</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　坑道の水桶</jp>
+    <en>For map 【Water Material】
+　　　A tunnel tundish</en>
+  </description>
+  <description>
+    <jp>マップ用　【雪マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ/半透明</jp>
+    <en>For map [Snow Material]
+　　　Specular / bump / light texture / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　5mx5mのマッピングを想定 下水用</jp>
+    <en>For map 【Water Material】
+　　　Assume 5 m × 5 m mapping for sewage</en>
+  </description>
+  <description>
+    <jp>m10_00 坂用
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For m10_00 slope
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>m10用　【流れる雲】
+　　　ノーライト（ディフューズのみ）  / スクロール</jp>
+    <en>For m10 【Flowing cloud】
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>m10用　【天使のはしご】
+　　　ノーライト（ディフューズのみ）  / スクロール</jp>
+    <en>For m10 【Angel ladder】
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【ライトシャフト用】
+　　　ノーライト（ディフューズのみ） / 加算 / スクロール</jp>
+    <en>For map 【for light shaft】
+　　　No light (diffuse only) / addition / scroll</en>
+  </description>
+  <description>
+    <jp>m10用　【霧】
+　　　ノーライト（ディフューズのみ）/スクロール</jp>
+    <en>For m10 【Fog】
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>m10用　【霧 遠景用】
+　　　ノーライト（ディフューズのみ）/スクロール</jp>
+    <en>For m10 [For mist distant view]
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>M10用　【水の濁り】
+　　　ディフューズのみ / α抜き</jp>
+    <en>For M10 【Water turbidity】
+　　　Diffuse only / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【粘液】
+　ハイトマップをリアルタイムでノーマルマップに</jp>
+    <en>For map [mucus]
+　Map the height map to real map in a normal map</en>
+  </description>
+  <description>
+    <jp>マップ用　【粘液】
+　ハイトマップをリアルタイムでノーマルマップに /半透明</jp>
+    <en>For map [mucus]
+　Height map to real map in normal map / translucent</en>
+  </description>
+  <description>
+    <jp>ヘドロスクロール用
+　　　スペキュラー / バンプ
+
+   眼球などに使用してください</jp>
+    <en>For sludge scroll
+　　　Specular / bump
+
+   Please use it for the eyeball etc.</en>
+  </description>
+  <description>
+    <jp>ヘドロスクロール用
+　　　スペキュラー / バンプ / ライトマップ</jp>
+    <en>For sludge scroll
+　　　Specular / bump / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ / 下水用</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / light texture / for sewage</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ / ディティールバンプ</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / light texture / detail bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　5mx5mのマッピングを想定 城下～拠点間で使用</jp>
+    <en>For map 【Water Material】
+　　　Assuming mapping of 5 m × 5 m Used between castles and bases</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　下水の流れ用</jp>
+    <en>For map 【Water Material】
+　　　For sewage flow</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　10mx10mのマッピングを想定</jp>
+    <en>For map 【Water Material】
+　　　Suppose a mapping of 10 m × 10 m</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　5mx5mのマッピングを想定 下水ボス部屋用</jp>
+    <en>For map 【Water Material】
+　　　Assumed mapping of 5 mx 5 m for sewer boss room</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　5mx5mのマッピングを想定 下水流れ無し用</jp>
+    <en>For map 【Water Material】
+　　　5 m × 5 m mapping assumed No sewage flow</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　5mx5mのマッピングを想定 下水用 映り込み弱</jp>
+    <en>For map 【Water Material】
+　　　Assumed 5 m × 5 m mapping Weak reflection for sewerage</en>
+  </description>
+  <description>
+    <jp>キャラ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ / ライトマップ</jp>
+    <en>For characters [Wet system material (strong specular)]
+　　　Specular / bump / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　バンプ / ライトテクスチャ　/ディティールバンプ</jp>
+    <en>For map [Standard material]
+　　　Bump / Light Texture / Detail Bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズ / ライトテクスチャ /ディティールバンプ</jp>
+    <en>For map [Standard material]
+　　　Diffuse / Light Texture / Detail Bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【雪マテリアル】
+　ハイトマップをリアルタイムでノーマルマップに
+　ライトマップ付き</jp>
+    <en>For map [Snow Material]
+　Map the height map to real map in a normal map
+　With light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【雪マテリアル】
+　ハイトマップをリアルタイムでノーマルマップに
+ （階段用）</jp>
+    <en>For map [Snow Material]
+　Map the height map to real map in a normal map
+ (For stairs)</en>
+  </description>
+  <description>
+    <jp>マップ用　【雪マテリアル】
+　ハイトマップをリアルタイムでノーマルマップに
+ （階段用ライトマップ付き）</jp>
+    <en>For map [Snow Material]
+　Map the height map to real map in a normal map
+ (With light map for stairs)</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　5mx5mのマッピングを想定 地下貯水池用</jp>
+    <en>For map 【Water Material】
+　　　Assumed mapping of 5 m × 5 m for underground reservoir</en>
+  </description>
+  <description>
+    <jp>マップ用　【木材系マテリアル】
+　　　スペキュラー / ライトマップ</jp>
+    <en>For map [wood-based material]
+　　　Specular / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズ / 半透明 / ライトマップ</jp>
+    <en>For map [Standard material]
+　　　Diffuse / translucent / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズ / α抜き / ライトマップ</jp>
+    <en>For map [Standard material]
+　　　Diffuse / alpha withdrawal / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【標準マテリアル】
+　　　ディフューズのみ / 半透明</jp>
+    <en>For map [Standard material]
+　　　Diffuse only / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【苔生した地面】
+　　　スペキュラ/バンプ</jp>
+    <en>For map [Sowing ground]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【苔生した地面】
+　　　スペキュラ / バンプ / ライトマップ</jp>
+    <en>For map [Sowing ground]
+　　　Specular / bump / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【苔生した地面】
+　　　スペキュラ / バンプ / 半透明 / ライトマップ</jp>
+    <en>For map [Sowing ground]
+　　　Specular / bump / translucent / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【苔生した地面】
+　　　スペキュラ/バンプ/半透明</jp>
+    <en>For map [Sowing ground]
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【苔生した地面】
+　　　ディフューズ / ライトマップ</jp>
+    <en>For map [Sowing ground]
+　　　Diffuse / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【苔生した地面】
+　　　ディフューズのみ</jp>
+    <en>For map [Sowing ground]
+　　　Diffuse only</en>
+  </description>
+  <description>
+    <jp>m12用　【水マテリアル】
+　　　5mx5mのマッピングを想定</jp>
+    <en>For m12 【Water Material】
+　　　Suppose 5 m × 5 m mapping</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　狼島の小さな滝</jp>
+    <en>For map 【Water Material】
+　　　A small waterfall on Wolf Island</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　5mx5mのマッピングを想定</jp>
+    <en>For map 【Water Material】
+　　　Suppose 5 m × 5 m mapping</en>
+  </description>
+  <description>
+    <jp>マップ用　【苔生した地面】
+　　　スペキュラー / バンプ / マルチテクスチャ</jp>
+    <en>For map [Sowing ground]
+　　　Specular / bump / multi-texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【苔生した地面】
+　　　スペキュラー / バンプ / マルチテクスチャ / ライトマップ</jp>
+    <en>For map [Sowing ground]
+　　　Specular / bump / multi-texture / light map</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / ライトマップ</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / light map</en>
+  </description>
+  <description>
+    <jp>霧板用</jp>
+    <en>For mist plate</en>
+  </description>
+  <description>
+    <jp>虫00</jp>
+    <en>Insect 00</en>
+  </description>
+  <description>
+    <jp>虫01</jp>
+    <en>Insect 01</en>
+  </description>
+  <description>
+    <jp>M13滝用(´</jp>
+    <en>For M13 waterfall ('</en>
+  </description>
+  <description>
+    <jp>M13滝用</jp>
+    <en>For M13 waterfall</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m14専用水面</jp>
+    <en>For map 【Water Material】
+　　　m14 dedicated water surface</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m13専用水面</jp>
+    <en>For map 【Water Material】
+　　　m13 dedicated water surface</en>
+  </description>
+  <description>
+    <jp>マップ用　【雪マテリアル】
+　タール用（5ｍｘ5ｍマッピングを想定）</jp>
+    <en>For map [Snow Material]
+　For tar (assuming 5 m × 5 m mapping)</en>
+  </description>
+  <description>
+    <jp>m15用　【流れる雲】
+　　　ノーライト（ディフューズのみ）  / スクロール</jp>
+    <en>For m15 【Flowing cloud】
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【石材系マテリアル】
+　　　スペキュラー / バンプ / α抜き
+      テクスチャスクロール</jp>
+    <en>For map [Stone material]
+　　　Specular / bump / without α
+      Texture scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【ガラス、陶器マテリアル】
+　　　スペキュラー / バンプ / 半透明
+　　　光の差し込むステンドグラス用</jp>
+    <en>For map [glass, ceramic material]
+　　　Specular / bump / translucent
+　　　For lighting stained glass</en>
+  </description>
+  <description>
+    <jp>m16用　【霧】
+　　　ノーライト（ディフューズのみ）/スクロール</jp>
+    <en>For m16 【Fog】
+　　　No light (diffuse only) / scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　5mx5mのマッピングを想定
+      小さな水溜り用</jp>
+    <en>For map 【Water Material】
+　　　Suppose 5 m × 5 m mapping
+      For small puddle</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / ディティールバンプ</jp>
+    <en>For map [Metal material]
+　　　Specular / Bump / Detail Bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【結晶マテリアル】
+　　　スペキュラー / バンプ　/　半透明</jp>
+    <en>For map 【Crystal Material】
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【結晶マテリアル】
+　　　スペキュラー / バンプ</jp>
+    <en>For map 【Crystal Material】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【結晶マテリアル】
+　　　スペキュラー / バンプ　/　α抜き</jp>
+    <en>For map 【Crystal Material】
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ / ライトテクスチャ /　ディティールバンプ</jp>
+    <en>For map [Metal material]
+　　　Specular / bump / light texture / detail bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【金属系マテリアル】
+　　　スペキュラー / バンプ /ディティールバンプ</jp>
+    <en>For map [Metal material]
+　　　Specular / Bump / Detail Bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【天球_雲】
+　　ノーライト（ディフューズのみ）/半透明/スクロール</jp>
+    <en>For the map 【Tianbuku _ clouds】
+　　No light (diffuse only) / translucent / scroll</en>
+  </description>
+  <description>
+    <jp>マップ用　【天球_空】
+　　　ノーライト（ディフューズのみ）</jp>
+    <en>For map [Tianba _ sky]
+　　　No light (diffuse only)</en>
+  </description>
+  <description>
+    <jp>ハエ</jp>
+    <en>Fly</en>
+  </description>
+  <description>
+    <jp>マップ用　【遠景・山】
+　　ノーライト（ディフューズのみ）/半透明</jp>
+    <en>For map [Landscape · Mountain]
+　　No light (diffuse only) / translucent</en>
+  </description>
+  <description>
+    <jp>m99_99_11用　【遠景　流れる雲】
+　　　ノーライト（ディフューズのみ） / 加算 / スクロール</jp>
+    <en>For m99_99_11 【Clouds flowing distant view】
+　　　No light (diffuse only) / addition / scroll</en>
+  </description>
+  <description>
+    <jp>m99_99_11用　【遠景　流れる雲の影】
+　　　スペキュラー  / マルチテクスチャ / ライトテクスチャー</jp>
+    <en>For m99_99_11 【Shadow of distant view flowing cloud】
+　　　Specular / multi-texture / light texture</en>
+  </description>
+  <description>
+    <jp>m99_99_11用　【遠景　流れる雲の影】
+　　　ディフューズのみ / ライトテクスチャ</jp>
+    <en>For m99_99_11 【Shadow of distant view flowing cloud】
+　　　Diffuse only / Light texture</en>
+  </description>
+  <description>
+    <jp>m99_99_11用　【遠景　流れる雲の影】
+　　　ディフューズのみ / ライトテクスチャ / α抜き</jp>
+    <en>For m99_99_11 【Shadow of distant view flowing cloud】
+　　　Diffuse only / Light texture / without α</en>
+  </description>
+  <description>
+    <jp>m99_99_11用　【遠景　流れる雲の影】
+　　　ディフューズのみ  / マルチテクスチャ / ライトテクスチャ</jp>
+    <en>For m99_99_11 【Shadow of distant view flowing cloud】
+　　　Diffuse Only / Multi Texture / Light Texture</en>
+  </description>
+  <description>
+    <jp>マップ用　【溶岩A】
+　　　m99_99_12</jp>
+    <en>For map [Lava A]
+　　　m99 _ 99 _ 12</en>
+  </description>
+  <description>
+    <jp>マップ用　【溶岩B】
+　　　m99_99_1</jp>
+    <en>For map [Lava B]
+　　　m99 _ 99 _ 1</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m99_99_00
+      ※現状は[DifSpcBnp_Alp]です</jp>
+    <en>For map 【Water Material】
+　　　m99 _ 99 _ 00
+      ※ The current situation is [DifSpcBnp_Alp]</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m99_99_01
+      ※現状は[DifSpcBnp_Alp]です</jp>
+    <en>For map 【Water Material】
+　　　m99 _ 99 _ 01
+      ※ The current situation is [DifSpcBnp_Alp]</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　オープニングREMO用</jp>
+    <en>For map 【Water Material】
+　　　For opening REMO</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m99_99_10</jp>
+    <en>For map 【Water Material】
+　　　m99 _ 99 _ 10</en>
+  </description>
+  <description>
+    <jp>マップ用　【水マテリアル】
+　　　m99_99_11</jp>
+    <en>For map 【Water Material】
+　　　m99 _ 99 _ 11</en>
+  </description>
+  <description>
+    <jp>マップ用　【血文字】
+　　　スペキュラー / バンプ / 半透明</jp>
+    <en>For maps 【blood characters】
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>マップ用　【魔法障壁】</jp>
+    <en>For the map [Magic Barrier]</en>
+  </description>
+  <description>
+    <jp>マップ用　【天球_暗い】
+　　　ノーライト（ディフューズのみ）</jp>
+    <en>For the map 【Tenpyo _ dark】
+　　　No light (diffuse only)</en>
+  </description>
+  <description>
+    <jp>遠景の樹木用　【標準マテリアル】
+　　　ディフューズのみ / α抜き（テクスチャはDXT5で）</jp>
+    <en>For distant view trees 【Standard Material】
+　　　Diffuse only / without α (Texture is DXT 5)</en>
+  </description>
+  <description>
+    <jp>パーツ用　【標準マテリアル】
+　　　ディフューズ / バンプ</jp>
+    <en>For parts 【Standard Material】
+　　　Diffuse / bump</en>
+  </description>
+  <description>
+    <jp>パーツ用　【標準マテリアル】
+　　　ディフューズのみ</jp>
+    <en>For parts 【Standard Material】
+　　　Diffuse only</en>
+  </description>
+  <description>
+    <jp>パーツ用　【なめし皮系マテリアル　（スペキュラー弱）】
+　　　スペキュラー / バンプ</jp>
+    <en>For parts 【tanned skin type material (weak specular)】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>パーツ用　【なめし皮系マテリアル　（スペキュラー弱）】
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For parts 【tanned skin type material (weak specular)】
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>パーツ用　【なめし皮系マテリアル　（スペキュラー弱）】
+　　　スペキュラー / バンプ / 半透明 / スキン</jp>
+    <en>For parts 【tanned skin type material (weak specular)】
+　　　Specular / bump / translucent / skin</en>
+  </description>
+  <description>
+    <jp>パーツ用　【なめし皮系マテリアル　（スペキュラー弱）】
+　　　スペキュラー</jp>
+    <en>For parts 【tanned skin type material (weak specular)】
+　　　Specular</en>
+  </description>
+  <description>
+    <jp>パーツ用　【金属系マテリアル　（スペキュラー中）】
+　　　スペキュラー / バンプ</jp>
+    <en>For parts 【Metallic material (in specular)】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>パーツ用　【金属系マテリアル　（スペキュラー中）】
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For parts 【Metallic material (in specular)】
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>パーツ用　【ボロ布系マテリアル　（スペキュラー弱）】DetailBump
+　　　スペキュラー / バンプ</jp>
+    <en>For parts 【Boro cloth material (weak specular)】 DetailBump
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>パーツ用　【ボロ布系マテリアル　（スペキュラー弱）】DetailBump
+　　　スペキュラー / バンプ / α抜き</jp>
+    <en>For parts 【Boro cloth material (weak specular)】 DetailBump
+　　　Specular / bump / without α</en>
+  </description>
+  <description>
+    <jp>パーツ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ
+
+   眼球などに使用してください</jp>
+    <en>For parts 【Wet system material (strong specular)】
+　　　Specular / bump
+
+   Please use it for the eyeball etc.</en>
+  </description>
+  <description>
+    <jp>パーツ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ / α抜き
+
+   眼球などに使用してください</jp>
+    <en>For parts 【Wet system material (strong specular)】
+　　　Specular / bump / without α
+
+   Please use it for the eyeball etc.</en>
+  </description>
+  <description>
+    <jp>パーツ用　【人肌】
+　　　スペキュラー / バンプ</jp>
+    <en>For parts 【Human skin】
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>パーツ用　【眼球】
+　　 スペキュラー/色替え対応</jp>
+    <en>For parts 【Eyeball】
+　　 Specular / color change correspondence</en>
+  </description>
+  <description>
+    <jp>パーツ用　【FaceGenブレンド】
+　　　スペキュラー / マルチ / スキン</jp>
+    <en>For parts 【FaceGen blend】
+　　　Specular / multi / skin</en>
+  </description>
+  <description>
+    <jp>侵入ホワイト(黒白)ゴースト用パラメータ</jp>
+    <en>Intrusion White (Black and White) Parameters for Ghost</en>
+  </description>
+  <description>
+    <jp>ブルーゴースト用パラメータ(助っ人侵入)</jp>
+    <en>Parameters for Blue Ghost (Helper Invasion)</en>
+  </description>
+  <description>
+    <jp>魔法：太陽の剣用パラメータ</jp>
+    <en>Magic: Parameters for the sword of the sun</en>
+  </description>
+  <description>
+    <jp>魔法：武器強化・盾強化用パラメータ</jp>
+    <en>Magic: weapon reinforcement · shield reinforcement parameter</en>
+  </description>
+  <description>
+    <jp>魔法：武器強化・盾強化用パラメータ_2段階目用</jp>
+    <en>Magic: Weapon reinforcement · For shield reinforcement parameter _ 2 step</en>
+  </description>
+  <description>
+    <jp>グレイゴースト用パラメータ</jp>
+    <en>Parameters for Gray Ghost</en>
+  </description>
+  <description>
+    <jp>魔法・鉄の体用パラメータ</jp>
+    <en>Magic · iron body parameters</en>
+  </description>
+  <description>
+    <jp>エンチャントゴースト用パラメータ</jp>
+    <en>Enchantment Ghost parameters</en>
+  </description>
+  <description>
+    <jp>リプレイゴースト用パラメータ</jp>
+    <en>Parameters for replay ghost</en>
+  </description>
+  <description>
+    <jp>宝箱ゴースト用パラメータ</jp>
+    <en>Parameters for treasure box ghost</en>
+  </description>
+  <description>
+    <jp>誓約アンバサＡ用パラメータ</jp>
+    <en>Parameters for pledge ambassa A</en>
+  </description>
+  <description>
+    <jp>徘徊ゴースト用パラメータ</jp>
+    <en>Parameters for wandering ghost</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　　 バンプ / スペキュラー</jp>
+    <en>For parts 【Hair】
+　　 Bump / specular</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　 　バンプ / スペキュラー / 半透明</jp>
+    <en>For parts 【Hair】
+　 　Bump / specular / translucent</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　　 バンプ / スペキュラー / α抜き</jp>
+    <en>For parts 【Hair】
+　　 Bump / specular / without α</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　　 スペキュラー</jp>
+    <en>For parts 【Hair】
+　　 Specular</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　 　スペキュラー / 半透明</jp>
+    <en>For parts 【Hair】
+　 　Specular / translucent</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　　 スペキュラー / α抜き</jp>
+    <en>For parts 【Hair】
+　　 Specular / without α</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　　　ディフューズのみ</jp>
+    <en>For parts 【Hair】
+　　　Diffuse only</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　　 ディフューズのみ / 半透明</jp>
+    <en>For parts 【Hair】
+　　 Diffuse only / translucent</en>
+  </description>
+  <description>
+    <jp>パーツ用　【髪】
+　　 ディフューズのみ / α抜き</jp>
+    <en>For parts 【Hair】
+　　 Diffuse only / without α</en>
+  </description>
+  <description>
+    <jp>パーツ用　【徘徊ゴースト】
+　　　バンプ  / 加算</jp>
+    <en>For parts 【Wandering Ghost】
+　　　Bump / addition</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+　　ディフューズ/　バンプ</jp>
+    <en>For SFX 【Standard Material】
+　　Diffuse / bump</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+　　　バンプ / 半透明</jp>
+    <en>For SFX 【Standard Material】
+　　　Bump / translucent</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ/スペキュラ/バンプ/半透明</jp>
+    <en>For SFX 【Standard Material】
+Dehuse / specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ/スペキュラ/バンプ/不透明</jp>
+    <en>For SFX 【Standard Material】
+DEFHEZ / specular / bump / opaque</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ</jp>
+    <en>For SFX 【Standard Material】
+Dews</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+　　　ディフューズのみ</jp>
+    <en>For SFX 【Standard Material】
+　　　Diffuse only</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ / 減算</jp>
+    <en>For SFX 【Standard Material】
+DEFUES / Subtraction</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ ライト無し</jp>
+    <en>For SFX 【Standard Material】
+No de-hearth light</en>
+  </description>
+  <description>
+    <jp>SFX用【ヒットエフェクト_血用】
+ディフューズ/スペキュラー / バンプ/半透明</jp>
+    <en>For SFX 【Hit effect _ for blood】
+Diffuse / specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ ２倍　加算　ライト無し</jp>
+    <en>For SFX 【Standard Material】
+DEFUZE DOUBLE ADDED NO LIGHT</en>
+  </description>
+  <description>
+    <jp>キャラ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ</jp>
+    <en>For characters [Wet system material (strong specular)]
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>キャラ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　スペキュラー / バンプ/半透明</jp>
+    <en>For characters [Wet system material (strong specular)]
+　　　Specular / bump / translucent</en>
+  </description>
+  <description>
+    <jp>キャラ用　【濡れた系マテリアル　（スペキュラー強）】
+　　　ディフューズ/スペキュラー</jp>
+    <en>For characters [Wet system material (strong specular)]
+　　　Diffuse / specular</en>
+  </description>
+  <description>
+    <jp>SFX用　【特殊マテリアル】
+デヒューズ （スクロール+加算）
+※魔法陣スクロール用</jp>
+    <en>For SFX 【Special Material】
+Dehuz (scroll + addition)
+* For magic team scroll</en>
+  </description>
+  <description>
+    <jp>ＳＸＦ用　【雷雲】
+　　　ノーライト（ディフューズのみ）</jp>
+    <en>For SXF 【Thundercloud】
+　　　No light (diffuse only)</en>
+  </description>
+  <description>
+    <jp>半透明</jp>
+    <en>Translucent</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ ２倍　半透明　ライト無し</jp>
+    <en>For SFX 【Standard Material】
+Dehuse 2 times semitransparent No light</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ ２倍　半透明　ライト無し スクロール</jp>
+    <en>For SFX 【Standard Material】
+Dehuse 2 times semitransparent light without scroll</en>
+  </description>
+  <description>
+    <jp>SFX用　【標準マテリアル】
+デヒューズ ２倍　減算　ライト無し</jp>
+    <en>For SFX 【Standard Material】
+DEFUSION 2 times subtraction light nothing</en>
+  </description>
+  <description>
+    <jp>イザリスの封印用
+　　　ディフューズx２ / 加算</jp>
+    <en>For Isalis Seal
+　　　Diffuse x 2 / Addition</en>
+  </description>
+  <description>
+    <jp>闇スクロール用
+　　　スペキュラー / バンプ</jp>
+    <en>For dark scrolling
+　　　Specular / bump</en>
+  </description>
+  <description>
+    <jp>マップ用　【闇水マテリアル】
+　　　5mx5mのマッピングを想定</jp>
+    <en>For map [dark water material]
+　　　Suppose 5 m × 5 m mapping</en>
+  </description>
+  <description>
+    <jp>c4500_深淵の主専用　【腕のテクスチャスクロール】減算</jp>
+    <en>c4500_ Mainly for the abyss 【Texture scroll on the arm】 Subtraction</en>
+  </description>
+  <description>
+    <jp>c4500_深淵の主専用　眼球１</jp>
+    <en>c 4500 _ Main exclusive eyeball of abyss 1</en>
+  </description>
+  <description>
+    <jp>c4500_深淵の主専用　眼球２_Alp</jp>
+    <en>c4500 _ Main exclusive eyeball of abyss 2 _ Alp</en>
+  </description>
+  <description>
+    <jp>キャラ用　【スペキュラ色強調・艶無し革系マテリアル　（スペキュラー最弱）】
+　　　スペキュラー / バンプ ２値抜き</jp>
+    <en>For characters [specular color emphasis · matte leather type material (specular weakest)]
+　　　Specular / bump 2 value unmarked</en>
+  </description>
+</descriptions>
