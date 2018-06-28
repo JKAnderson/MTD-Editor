@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.lblMTDPath = new System.Windows.Forms.Label();
             this.txtMTDPath = new System.Windows.Forms.TextBox();
@@ -51,6 +52,7 @@
             this.btnRestore = new System.Windows.Forms.Button();
             this.llbUpdate = new System.Windows.Forms.LinkLabel();
             this.lblUpdate = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMTD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -343,6 +345,7 @@
         private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.LinkLabel llbUpdate;
         private System.Windows.Forms.Label lblUpdate;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

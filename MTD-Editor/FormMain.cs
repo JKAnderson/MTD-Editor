@@ -34,7 +34,8 @@ namespace MTD_Editor
                 WindowState = FormWindowState.Maximized;
 
             txtMTDPath.Text = settings.MTDPath;
-            loadFile(txtMTDPath.Text);
+            if (File.Exists(txtMTDPath.Text))
+                loadFile(txtMTDPath.Text);
 
             GitHubClient gitHubClient = new GitHubClient(new ProductHeaderValue("MTD-Editor"));
             try
