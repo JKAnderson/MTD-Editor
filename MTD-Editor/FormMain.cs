@@ -1,6 +1,6 @@
-﻿using DSFormats;
-using Octokit;
+﻿using Octokit;
 using Semver;
+using SoulsFormats;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,8 +16,8 @@ namespace MTD_Editor
     {
         private static Properties.Settings settings = Properties.Settings.Default;
 
-        private bool dcx;
-        private BND mtdbnd;
+        private BND3 mtdBND3;
+        private BND4 mtdBND4;
         private MTD mtd;
 
         public FormMain()
@@ -34,8 +34,7 @@ namespace MTD_Editor
                 WindowState = FormWindowState.Maximized;
 
             txtMTDPath.Text = settings.MTDPath;
-            if (File.Exists(txtMTDPath.Text))
-                loadFile(txtMTDPath.Text);
+            LoadFile(txtMTDPath.Text, true);
 
             GitHubClient gitHubClient = new GitHubClient(new ProductHeaderValue("MTD-Editor"));
             try
@@ -93,7 +92,7 @@ namespace MTD_Editor
             if (ofdOpenMTD.ShowDialog() == DialogResult.OK)
             {
                 txtMTDPath.Text = ofdOpenMTD.FileName;
-                loadFile(txtMTDPath.Text);
+                LoadFile(txtMTDPath.Text);
             }
         }
 
@@ -116,8 +115,10 @@ namespace MTD_Editor
             {
                 File.Delete(path);
                 File.Move(path + ".bak", path);
-                loadFile(path);
+                LoadFile(path);
             }
+
+            SystemSounds.Asterisk.Play();
         }
 
         private void txtMTDPath_DragEnter(object sender, DragEventArgs e)
@@ -134,61 +135,77 @@ namespace MTD_Editor
             {
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
                 txtMTDPath.Text = files[0];
-                loadFile(txtMTDPath.Text);
+                LoadFile(txtMTDPath.Text);
             }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            loadFile(txtMTDPath.Text);
+            LoadFile(txtMTDPath.Text);
         }
 
-        private void loadFile(string path)
+        private void LoadFile(string path, bool silent = false)
         {
-            if (File.Exists(path))
+            if (!File.Exists(path))
             {
-                string filename = Path.GetFileName(path);
-                string extension = Path.GetExtension(filename);
-                byte[] bytes = File.ReadAllBytes(path);
-                if (extension == ".dcx")
-                {
-                    dcx = true;
-                    bytes = DCX.Decompress(bytes);
-                    filename = Path.GetFileNameWithoutExtension(filename);
-                    extension = Path.GetExtension(filename);
-                }
+                ShowError($"File not found:\r\n{path}", silent);
+                return;
+            }
 
-                cmbMTD.Enabled = false;
-                cmbMTD.Items.Clear();
-                mtdbnd = null;
-                mtd = null;
+            string filename = Path.GetFileName(path);
+            string extension = Util.GetRealExtension(filename);
 
-                if (extension == ".mtdbnd")
+            cmbMTD.Enabled = false;
+            cmbMTD.Items.Clear();
+
+            mtdBND3 = null;
+            mtdBND4 = null;
+            mtd = null;
+
+            var mtdItems = new List<MTDItem>();
+
+            try
+            {
+                if (MTD.Is(path))
                 {
-                    mtdbnd = BND.Unpack(bytes);
-                    List<MTDItem> items = new List<MTDItem>();
-                    foreach (BNDEntry entry in mtdbnd.Files)
-                        items.Add(new MTDItem(MTD.Read(entry.Bytes), entry.Filename));
-                    items.Sort((i1, i2) => i1.Name.CompareTo(i2.Name));
-                    cmbMTD.Items.AddRange(items.ToArray());
-                    cmbMTD.Enabled = true;
-                    cmbMTD.SelectedIndex = 0;
+                    mtdItems.Add(new MTDItem(MTD.Read(path), filename));
                 }
-                else if (extension == ".mtd")
+                else if (BND3.Is(path))
                 {
-                    cmbMTD.Items.Add(new MTDItem(MTD.Read(bytes), filename));
-                    cmbMTD.Enabled = false;
-                    cmbMTD.SelectedIndex = 0;
+                    mtdBND3 = BND3.Read(path);
+                    foreach (BND3.File file in mtdBND3.Files)
+                    {
+                        if (MTD.Is(file.Bytes))
+                            mtdItems.Add(new MTDItem(MTD.Read(file.Bytes), file.Name));
+                    }
+                }
+                else if (BND4.Is(path))
+                {
+                    mtdBND4 = BND4.Read(path);
+                    foreach (BND4.File file in mtdBND4.Files)
+                    {
+                        if (MTD.Is(file.Bytes))
+                            mtdItems.Add(new MTDItem(MTD.Read(file.Bytes), file.Name));
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid file type:\n" + path, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowError($"Unrecognized file type:\r\n{path}", silent);
+                    return;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("File not found:\n" + path, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowError($"Failed to load file:\r\n{path}\r\n{ex}", silent);
+                return;
             }
+
+            mtdItems.Sort((i1, i2) => i1.Name.CompareTo(i2.Name));
+            cmbMTD.Items.AddRange(mtdItems.ToArray());
+            cmbMTD.SelectedIndex = 0;
+
+            if (mtdItems.Count > 1)
+                cmbMTD.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -197,162 +214,178 @@ namespace MTD_Editor
             if (!File.Exists(path + ".bak"))
                 File.Copy(path, path + ".bak");
 
-            byte[] bytes;
-            if (mtdbnd != null)
+            if (mtdBND3 != null)
             {
-                foreach (BNDEntry entry in mtdbnd.Files)
+                foreach (BND3.File entry in mtdBND3.Files)
                 {
                     foreach (MTDItem item in cmbMTD.Items)
                     {
-                        if (entry.Filename == item.Name)
+                        if (entry.Name == item.Name)
                         {
                             entry.Bytes = item.MTD.Write();
                         }
                     }
                 }
-                bytes = mtdbnd.Repack();
+                mtdBND3.Write(path);
+            }
+            else if (mtdBND4 != null)
+            {
+                foreach (BND4.File entry in mtdBND4.Files)
+                {
+                    foreach (MTDItem item in cmbMTD.Items)
+                    {
+                        if (entry.Name == item.Name)
+                        {
+                            entry.Bytes = item.MTD.Write();
+                        }
+                    }
+                }
+                mtdBND4.Write(path);
             }
             else
             {
-                bytes = mtd.Write();
+                mtd.Write(path);
             }
 
-            if (dcx)
-                bytes = DCX.Compress(bytes);
-            File.WriteAllBytes(path, bytes);
+            SystemSounds.Asterisk.Play();
         }
 
         private void cmbMTD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvMTD.Rows.Clear();
+            dgvParams.Rows.Clear();
             MTDItem item = cmbMTD.SelectedItem as MTDItem;
             mtd = item.MTD;
-            loadMTD(mtd);
+            LoadMTD(mtd);
         }
 
-        private void loadMTD(MTD mtd)
+        private void LoadMTD(MTD mtd)
         {
-            txtDescription.Text = mtd.Description;
+            txtDescription.DataBindings.Clear();
+            txtDescription.DataBindings.Add("Text", mtd, "Description");
             txtDescriptionTranslated.Text = MTDTranslations.GetTranslation(mtd.Description);
-            txtSPXPath.Text = mtd.SpxPath;
 
-            foreach (MTD.InternalEntry inter in mtd.Internal)
+            txtShader.DataBindings.Clear();
+            txtShader.DataBindings.Add("Text", mtd, "ShaderPath");
+
+            dgvTextures.DataSource = mtd.Textures;
+
+            foreach (MTD.Param param in mtd.Params)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.Cells.Add(new DataGridViewTextBoxCell());
-                row.Cells[0].Value = inter.Name;
+                row.Cells[0].Value = param.Name;
                 row.Cells.Add(new DataGridViewTextBoxCell());
-                row.Cells[1].Value = inter.Type;
+                row.Cells[1].Value = param.Type;
 
-                if (inter.Type == MTD.InternalType.Int)
+                if (param.Type == MTD.ParamType.Int)
                 {
-                    if (inter.Name == "g_BlendMode")
+                    if (param.Name == "g_BlendMode")
                     {
                         DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
                         foreach (MTD.BlendMode blendMode in Enum.GetValues(typeof(MTD.BlendMode)))
                             cell.Items.Add(blendMode.ToString());
-                        cell.Value = Enum.GetName(typeof(MTD.BlendMode), (int)inter.Value);
+                        cell.Value = Enum.GetName(typeof(MTD.BlendMode), (int)param.Value);
                         row.Cells.Add(cell);
                     }
-                    else if (inter.Name == "g_LightingType")
+                    else if (param.Name == "g_LightingType")
                     {
                         DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
                         foreach (MTD.LightingType lightingType in Enum.GetValues(typeof(MTD.LightingType)))
                             cell.Items.Add(lightingType.ToString());
-                        cell.Value = Enum.GetName(typeof(MTD.LightingType), (int)inter.Value);
+                        cell.Value = Enum.GetName(typeof(MTD.LightingType), (int)param.Value);
                         row.Cells.Add(cell);
                     }
                     else
                     {
                         row.Cells.Add(new DataGridViewTextBoxCell());
-                        row.Cells[2].Value = ((int)inter.Value).ToString();
+                        row.Cells[2].Value = ((int)param.Value).ToString();
                     }
                 }
-                else if (inter.Type == MTD.InternalType.Int2)
+                else if (param.Type == MTD.ParamType.Int2)
                 {
                     row.Cells.Add(new DataGridViewTextBoxCell());
                     List<string> ints = new List<string>();
-                    foreach (int i in (int[])inter.Value)
+                    foreach (int i in (int[])param.Value)
                         ints.Add(i.ToString());
                     row.Cells[2].Value = string.Join(", ", ints);
                 }
-                else if (inter.Type == MTD.InternalType.Bool)
+                else if (param.Type == MTD.ParamType.Bool)
                 {
                     row.Cells.Add(new DataGridViewCheckBoxCell());
-                    row.Cells[2].Value = (bool)inter.Value;
+                    row.Cells[2].Value = (bool)param.Value;
                 }
-                else if (inter.Type == MTD.InternalType.Float)
+                else if (param.Type == MTD.ParamType.Float)
                 {
                     row.Cells.Add(new DataGridViewTextBoxCell());
-                    row.Cells[2].Value = ((float)inter.Value).ToString("0.0##");
+                    row.Cells[2].Value = ((float)param.Value).ToString("0.0##");
                 }
-                else if (inter.Type == MTD.InternalType.Float2
-                    || inter.Type == MTD.InternalType.Float3
-                    || inter.Type == MTD.InternalType.Float4)
+                else if (param.Type == MTD.ParamType.Float2
+                    || param.Type == MTD.ParamType.Float3
+                    || param.Type == MTD.ParamType.Float4)
                 {
                     row.Cells.Add(new DataGridViewTextBoxCell());
                     List<string> floats = new List<string>();
-                    foreach (float f in (float[])inter.Value)
+                    foreach (float f in (float[])param.Value)
                         floats.Add(f.ToString("0.0##"));
                     row.Cells[2].Value = string.Join(", ", floats);
                 }
 
-                dgvMTD.Rows.Add(row);
+                dgvParams.Rows.Add(row);
             }
         }
 
         private void dgvMTD_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (dgvMTD.Columns[e.ColumnIndex].HeaderText == "Value" && mtd != null)
+            if (dgvParams.Columns[e.ColumnIndex].HeaderText == "Value" && mtd != null)
             {
                 object value = e.FormattedValue;
-                string valueName = (string)dgvMTD.Rows[e.RowIndex].Cells[0].Value;
-                foreach (MTD.InternalEntry entry in mtd.Internal)
+                string valueName = (string)dgvParams.Rows[e.RowIndex].Cells[0].Value;
+                foreach (MTD.Param entry in mtd.Params)
                 {
                     if (entry.Name == valueName)
                     {
-                        if (entry.Type == MTD.InternalType.Int)
+                        if (entry.Type == MTD.ParamType.Int)
                         {
                             if (valueName != "g_BlendMode" && valueName != "g_LightingType")
-                                e.Cancel = !Int32.TryParse((string)value, out _);
+                                e.Cancel = !int.TryParse((string)value, out _);
                         }
-                        else if (entry.Type == MTD.InternalType.Int2)
-                            e.Cancel = validateInts((string)value, 2);
-                        else if (entry.Type == MTD.InternalType.Float)
-                            e.Cancel = !Single.TryParse((string)value, out _);
-                        else if (entry.Type == MTD.InternalType.Float2)
-                            e.Cancel = validateFloats((string)value, 2);
-                        else if (entry.Type == MTD.InternalType.Float3)
-                            e.Cancel = validateFloats((string)value, 3);
-                        else if (entry.Type == MTD.InternalType.Float4)
-                            e.Cancel = validateFloats((string)value, 4);
+                        else if (entry.Type == MTD.ParamType.Int2)
+                            e.Cancel = ValidateInts((string)value, 2);
+                        else if (entry.Type == MTD.ParamType.Float)
+                            e.Cancel = !float.TryParse((string)value, out _);
+                        else if (entry.Type == MTD.ParamType.Float2)
+                            e.Cancel = ValidateFloats((string)value, 2);
+                        else if (entry.Type == MTD.ParamType.Float3)
+                            e.Cancel = ValidateFloats((string)value, 3);
+                        else if (entry.Type == MTD.ParamType.Float4)
+                            e.Cancel = ValidateFloats((string)value, 4);
                         break;
                     }
                 }
             }
         }
 
-        private bool validateInts(string value, int count)
+        private bool ValidateInts(string value, int count)
         {
             string[] values = Regex.Split(value, @"\s*,\s*");
             if (values.Length != count)
                 return true;
 
             foreach (string i in values)
-                if (!Int32.TryParse(i, out _))
+                if (!int.TryParse(i, out _))
                     return true;
 
             return false;
         }
 
-        private bool validateFloats(string value, int count)
+        private bool ValidateFloats(string value, int count)
         {
             string[] values = Regex.Split(value, @"\s*,\s*");
             if (values.Length != count)
                 return true;
 
             foreach (string f in values)
-                if (!Single.TryParse(f, out _))
+                if (!float.TryParse(f, out _))
                     return true;
 
             return false;
@@ -360,14 +393,14 @@ namespace MTD_Editor
 
         private void dgvMTD_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dgvMTD.Rows[e.RowIndex];
+            DataGridViewRow row = dgvParams.Rows[e.RowIndex];
             object value = row.Cells[e.ColumnIndex].Value;
             string valueName = (string)row.Cells[0].Value;
-            foreach (MTD.InternalEntry entry in mtd.Internal)
+            foreach (MTD.Param entry in mtd.Params)
             {
                 if (entry.Name == valueName)
                 {
-                    if (entry.Type == MTD.InternalType.Int)
+                    if (entry.Type == MTD.ParamType.Int)
                     {
                         if (valueName == "g_BlendMode")
                             entry.Value = (int)Enum.Parse(typeof(MTD.BlendMode), (string)value);
@@ -376,7 +409,7 @@ namespace MTD_Editor
                         else
                             entry.Value = Int32.Parse((string)value);
                     }
-                    else if (entry.Type == MTD.InternalType.Int2)
+                    else if (entry.Type == MTD.ParamType.Int2)
                     {
                         string[] values = Regex.Split((string)value, @"\s*,\s*");
                         int[] result = new int[values.Length];
@@ -384,13 +417,13 @@ namespace MTD_Editor
                             result[i] = Int32.Parse(values[i]);
                         entry.Value = result;
                     }
-                    else if (entry.Type == MTD.InternalType.Bool)
+                    else if (entry.Type == MTD.ParamType.Bool)
                         entry.Value = (bool)value;
-                    else if (entry.Type == MTD.InternalType.Float)
+                    else if (entry.Type == MTD.ParamType.Float)
                         entry.Value = Single.Parse((string)value);
-                    else if (entry.Type == MTD.InternalType.Float2
-                        || entry.Type == MTD.InternalType.Float3
-                        || entry.Type == MTD.InternalType.Float4)
+                    else if (entry.Type == MTD.ParamType.Float2
+                        || entry.Type == MTD.ParamType.Float3
+                        || entry.Type == MTD.ParamType.Float4)
                     {
                         string[] values = Regex.Split((string)value, @"\s*,\s*");
                         float[] result = new float[values.Length];
@@ -400,6 +433,12 @@ namespace MTD_Editor
                     }
                 }
             }
+        }
+
+        private void ShowError(string message, bool silent = false)
+        {
+            if (!silent)
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private class MTDItem
