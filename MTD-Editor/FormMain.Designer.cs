@@ -42,11 +42,6 @@
             this.ofdOpenMTD = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dgvTextures = new System.Windows.Forms.DataGridView();
-            this.dgvTexturesTextureCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTexturesPathCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTexturesUVCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTexturesShaderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTexturesFloatsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusStripMTDPath = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -57,9 +52,14 @@
             this.exploreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.MTDInternalType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MTDInternalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MTDInternalValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesTextureCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesPathCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesUVCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesShaderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesFloatsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvParamsTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvParamsNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvParamsValueCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lblDescription = new System.Windows.Forms.Label();
             lblShader = new System.Windows.Forms.Label();
             lblDescriptionTranslated = new System.Windows.Forms.Label();
@@ -111,9 +111,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvParams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvParams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MTDInternalType,
-            this.MTDInternalName,
-            this.MTDInternalValue});
+            this.dgvParamsTypeCol,
+            this.dgvParamsNameCol,
+            this.dgvParamsValueCol});
             this.dgvParams.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvParams.Location = new System.Drawing.Point(3, 3);
             this.dgvParams.Name = "dgvParams";
@@ -211,47 +211,6 @@
             this.dgvTextures.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvTextures_CellFormatting);
             this.dgvTextures.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DgvTextures_CellParsing);
             this.dgvTextures.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DgvTextures_CellValidating);
-            // 
-            // dgvTexturesTextureCol
-            // 
-            this.dgvTexturesTextureCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvTexturesTextureCol.DataPropertyName = "Type";
-            this.dgvTexturesTextureCol.HeaderText = "Texture";
-            this.dgvTexturesTextureCol.Name = "dgvTexturesTextureCol";
-            this.dgvTexturesTextureCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dgvTexturesPathCol
-            // 
-            this.dgvTexturesPathCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvTexturesPathCol.DataPropertyName = "Path";
-            this.dgvTexturesPathCol.HeaderText = "Path";
-            this.dgvTexturesPathCol.Name = "dgvTexturesPathCol";
-            // 
-            // dgvTexturesUVCol
-            // 
-            this.dgvTexturesUVCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvTexturesUVCol.DataPropertyName = "UVNumber";
-            this.dgvTexturesUVCol.HeaderText = "UV Number";
-            this.dgvTexturesUVCol.Name = "dgvTexturesUVCol";
-            this.dgvTexturesUVCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgvTexturesUVCol.Width = 68;
-            // 
-            // dgvTexturesShaderCol
-            // 
-            this.dgvTexturesShaderCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvTexturesShaderCol.DataPropertyName = "ShaderDataIndex";
-            this.dgvTexturesShaderCol.HeaderText = "Shader Data Index";
-            this.dgvTexturesShaderCol.Name = "dgvTexturesShaderCol";
-            this.dgvTexturesShaderCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgvTexturesShaderCol.Width = 102;
-            // 
-            // dgvTexturesFloatsCol
-            // 
-            this.dgvTexturesFloatsCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvTexturesFloatsCol.DataPropertyName = "UnkFloats";
-            this.dgvTexturesFloatsCol.HeaderText = "Unknown Floats";
-            this.dgvTexturesFloatsCol.Name = "dgvTexturesFloatsCol";
-            this.dgvTexturesFloatsCol.Width = 109;
             // 
             // statusStrip1
             // 
@@ -359,34 +318,77 @@
             this.splitContainer1.SplitterDistance = 678;
             this.splitContainer1.TabIndex = 25;
             // 
-            // MTDInternalType
+            // dgvTexturesTextureCol
             // 
-            this.MTDInternalType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.MTDInternalType.DataPropertyName = "Type";
-            this.MTDInternalType.HeaderText = "Type";
-            this.MTDInternalType.Name = "MTDInternalType";
-            this.MTDInternalType.ReadOnly = true;
-            this.MTDInternalType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MTDInternalType.Width = 37;
+            this.dgvTexturesTextureCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvTexturesTextureCol.DataPropertyName = "Type";
+            this.dgvTexturesTextureCol.HeaderText = "Texture";
+            this.dgvTexturesTextureCol.Name = "dgvTexturesTextureCol";
+            this.dgvTexturesTextureCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // MTDInternalName
+            // dgvTexturesPathCol
             // 
-            this.MTDInternalName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MTDInternalName.DataPropertyName = "Name";
-            this.MTDInternalName.HeaderText = "Param";
-            this.MTDInternalName.Name = "MTDInternalName";
-            this.MTDInternalName.ReadOnly = true;
-            this.MTDInternalName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvTexturesPathCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvTexturesPathCol.DataPropertyName = "Path";
+            this.dgvTexturesPathCol.HeaderText = "Path";
+            this.dgvTexturesPathCol.Name = "dgvTexturesPathCol";
+            this.dgvTexturesPathCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // MTDInternalValue
+            // dgvTexturesUVCol
             // 
-            this.MTDInternalValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.MTDInternalValue.DataPropertyName = "Value";
-            this.MTDInternalValue.HeaderText = "Value";
-            this.MTDInternalValue.MinimumWidth = 110;
-            this.MTDInternalValue.Name = "MTDInternalValue";
-            this.MTDInternalValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.MTDInternalValue.Width = 110;
+            this.dgvTexturesUVCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvTexturesUVCol.DataPropertyName = "UVNumber";
+            this.dgvTexturesUVCol.HeaderText = "UV Number";
+            this.dgvTexturesUVCol.Name = "dgvTexturesUVCol";
+            this.dgvTexturesUVCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvTexturesUVCol.Width = 68;
+            // 
+            // dgvTexturesShaderCol
+            // 
+            this.dgvTexturesShaderCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvTexturesShaderCol.DataPropertyName = "ShaderDataIndex";
+            this.dgvTexturesShaderCol.HeaderText = "Shader Data Index";
+            this.dgvTexturesShaderCol.Name = "dgvTexturesShaderCol";
+            this.dgvTexturesShaderCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvTexturesShaderCol.Width = 102;
+            // 
+            // dgvTexturesFloatsCol
+            // 
+            this.dgvTexturesFloatsCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvTexturesFloatsCol.DataPropertyName = "UnkFloats";
+            this.dgvTexturesFloatsCol.HeaderText = "Unknown Floats";
+            this.dgvTexturesFloatsCol.Name = "dgvTexturesFloatsCol";
+            this.dgvTexturesFloatsCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvTexturesFloatsCol.Width = 90;
+            // 
+            // dgvParamsTypeCol
+            // 
+            this.dgvParamsTypeCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvParamsTypeCol.DataPropertyName = "Type";
+            this.dgvParamsTypeCol.HeaderText = "Type";
+            this.dgvParamsTypeCol.Name = "dgvParamsTypeCol";
+            this.dgvParamsTypeCol.ReadOnly = true;
+            this.dgvParamsTypeCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvParamsTypeCol.Width = 37;
+            // 
+            // dgvParamsNameCol
+            // 
+            this.dgvParamsNameCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvParamsNameCol.DataPropertyName = "Name";
+            this.dgvParamsNameCol.HeaderText = "Param";
+            this.dgvParamsNameCol.Name = "dgvParamsNameCol";
+            this.dgvParamsNameCol.ReadOnly = true;
+            this.dgvParamsNameCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgvParamsValueCol
+            // 
+            this.dgvParamsValueCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvParamsValueCol.DataPropertyName = "Value";
+            this.dgvParamsValueCol.HeaderText = "Value";
+            this.dgvParamsValueCol.MinimumWidth = 110;
+            this.dgvParamsValueCol.Name = "dgvParamsValueCol";
+            this.dgvParamsValueCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvParamsValueCol.Width = 110;
             // 
             // FormMain
             // 
@@ -445,9 +447,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesUVCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesShaderCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesFloatsCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsTypeCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsValueCol;
     }
 }
 
