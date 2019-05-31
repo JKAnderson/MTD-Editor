@@ -3,25 +3,26 @@ using System.Xml;
 
 namespace MTD_Editor
 {
-    static class MTDTranslations
+    internal static class MTDTranslations
     {
         private static readonly Dictionary<string, string> descriptions;
 
         static MTDTranslations()
         {
             descriptions = new Dictionary<string, string>();
-            XmlDocument xml = new XmlDocument();
+            var xml = new XmlDocument();
             xml.LoadXml(Properties.Resources.Translations);
-
-            foreach (XmlNode description in xml.SelectNodes("descriptions/description"))
+            foreach (XmlNode description in xml.SelectNodes("descriptions/desc"))
             {
-                descriptions[description.FirstChild.InnerText.Trim()] = description.LastChild.InnerText.Trim();
+                string ja = description.SelectSingleNode("ja").InnerText;
+                string en = description.SelectSingleNode("en").InnerText;
+                descriptions[ja] = en;
             }
         }
 
         public static string GetTranslation(string description)
         {
-            description = description.Trim();
+            description = description.TrimEnd();
             if (descriptions.ContainsKey(description))
                 return descriptions[description];
             else

@@ -9,13 +9,16 @@
       <Value Profile="(Default)">200, 200</Value>
     </Setting>
     <Setting Name="WindowSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">782, 664</Value>
+      <Value Profile="(Default)">1377, 662</Value>
     </Setting>
     <Setting Name="WindowMaximized" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="MTDPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SplitterDistance1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">938</Value>
     </Setting>
   </Settings>
 </SettingsFile>

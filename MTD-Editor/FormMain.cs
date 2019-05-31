@@ -5,24 +5,26 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Media;
-using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace MTD_Editor
 {
     public partial class FormMain : Form
     {
+        private const string UPDATE_URL = "https://www.nexusmods.com/darksouls/mods/1455?tab=files";
         private static Properties.Settings settings = Properties.Settings.Default;
 
-        private BND3 mtdBND3;
-        private BND4 mtdBND4;
+        private string mtdPath;
+        private IBinder mtdBnd;
         private MTD mtd;
 
         public FormMain()
         {
             InitializeComponent();
+            dgvTextures.AutoGenerateColumns = false;
+            dgvParams.AutoGenerateColumns = false;
         }
 
         private async void FormMain_Load(object sender, EventArgs e)
@@ -33,8 +35,9 @@ namespace MTD_Editor
             if (settings.WindowMaximized)
                 WindowState = FormWindowState.Maximized;
 
-            txtMTDPath.Text = settings.MTDPath;
-            LoadFile(txtMTDPath.Text, true);
+            splitContainer1.SplitterDistance = settings.SplitterDistance1;
+            mtdPath = settings.MTDPath;
+            LoadFile(mtdPath, true);
 
             GitHubClient gitHubClient = new GitHubClient(new ProductHeaderValue("MTD-Editor"));
             try
@@ -42,26 +45,10 @@ namespace MTD_Editor
                 Release release = await gitHubClient.Repository.Release.GetLatest("JKAnderson", "MTD-Editor");
                 if (SemVersion.Parse(release.TagName) > System.Windows.Forms.Application.ProductVersion)
                 {
-                    lblUpdate.Visible = false;
-                    LinkLabel.Link link = new LinkLabel.Link();
-                    link.LinkData = release.HtmlUrl;
-                    llbUpdate.Links.Add(link);
-                    llbUpdate.Visible = true;
-                }
-                else
-                {
-                    lblUpdate.Text = "App up to date";
+                    updateToolStripMenuItem.Visible = true;
                 }
             }
-            catch (Exception ex) when (ex is HttpRequestException || ex is ApiException || ex is ArgumentException)
-            {
-                lblUpdate.Text = "Update status unknown";
-            }
-        }
-
-        private void llbUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(e.Link.LinkData.ToString());
+            catch { }
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -78,50 +65,11 @@ namespace MTD_Editor
                 settings.WindowSize = RestoreBounds.Size;
             }
 
-            settings.MTDPath = txtMTDPath.Text;
+            settings.SplitterDistance1 = splitContainer1.SplitterDistance;
+            settings.MTDPath = mtdPath;
         }
 
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ofdOpenMTD.InitialDirectory = Path.GetDirectoryName(Path.GetFullPath(txtMTDPath.Text));
-            }
-            catch (ArgumentException) { }
-
-            if (ofdOpenMTD.ShowDialog() == DialogResult.OK)
-            {
-                txtMTDPath.Text = ofdOpenMTD.FileName;
-                LoadFile(txtMTDPath.Text);
-            }
-        }
-
-        private void btnExplore_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Process.Start(Path.GetDirectoryName(Path.GetFullPath(txtMTDPath.Text)));
-            }
-            catch (ArgumentException)
-            {
-                SystemSounds.Hand.Play();
-            }
-        }
-
-        private void btnRestore_Click(object sender, EventArgs e)
-        {
-            string path = txtMTDPath.Text;
-            if (File.Exists(path + ".bak"))
-            {
-                File.Delete(path);
-                File.Move(path + ".bak", path);
-                LoadFile(path);
-            }
-
-            SystemSounds.Asterisk.Play();
-        }
-
-        private void txtMTDPath_DragEnter(object sender, DragEventArgs e)
+        private void FormMain_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 e.Effect = DragDropEffects.Copy;
@@ -129,23 +77,19 @@ namespace MTD_Editor
                 e.Effect = DragDropEffects.None;
         }
 
-        private void txtMTDPath_DragDrop(object sender, DragEventArgs e)
+        private void FormMain_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-                txtMTDPath.Text = files[0];
-                LoadFile(txtMTDPath.Text);
+                mtdPath = files[0];
+                LoadFile(mtdPath);
             }
-        }
-
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            LoadFile(txtMTDPath.Text);
         }
 
         private void LoadFile(string path, bool silent = false)
         {
+            statusStripMTDPath.Text = "";
             if (!File.Exists(path))
             {
                 ShowError($"File not found:\r\n{path}", silent);
@@ -153,39 +97,38 @@ namespace MTD_Editor
             }
 
             string filename = Path.GetFileName(path);
-            string extension = Util.GetRealExtension(filename);
+            string extension = SFUtil.GetRealExtension(filename);
 
             cmbMTD.Enabled = false;
             cmbMTD.Items.Clear();
 
-            mtdBND3 = null;
-            mtdBND4 = null;
+            mtdBnd = null;
             mtd = null;
 
-            var mtdItems = new List<MTDItem>();
+            var mtdItems = new List<MTDWrapper>();
 
             try
             {
                 if (MTD.Is(path))
                 {
-                    mtdItems.Add(new MTDItem(MTD.Read(path), filename));
+                    mtdItems.Add(new MTDWrapper(MTD.Read(path), filename));
                 }
                 else if (BND3.Is(path))
                 {
-                    mtdBND3 = BND3.Read(path);
-                    foreach (BND3.File file in mtdBND3.Files)
+                    mtdBnd = BND3.Read(path);
+                    foreach (BinderFile file in mtdBnd.Files)
                     {
                         if (MTD.Is(file.Bytes))
-                            mtdItems.Add(new MTDItem(MTD.Read(file.Bytes), file.Name));
+                            mtdItems.Add(new MTDWrapper(MTD.Read(file.Bytes), file.Name));
                     }
                 }
                 else if (BND4.Is(path))
                 {
-                    mtdBND4 = BND4.Read(path);
-                    foreach (BND4.File file in mtdBND4.Files)
+                    mtdBnd = BND4.Read(path);
+                    foreach (BinderFile file in mtdBnd.Files)
                     {
                         if (MTD.Is(file.Bytes))
-                            mtdItems.Add(new MTDItem(MTD.Read(file.Bytes), file.Name));
+                            mtdItems.Add(new MTDWrapper(MTD.Read(file.Bytes), file.Name));
                     }
                 }
                 else
@@ -200,6 +143,7 @@ namespace MTD_Editor
                 return;
             }
 
+            statusStripMTDPath.Text = path;
             mtdItems.Sort((i1, i2) => i1.Name.CompareTo(i2.Name));
             cmbMTD.Items.AddRange(mtdItems.ToArray());
             cmbMTD.SelectedIndex = 0;
@@ -208,52 +152,11 @@ namespace MTD_Editor
                 cmbMTD.Enabled = true;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void CmbMTD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string path = txtMTDPath.Text;
-            if (!File.Exists(path + ".bak"))
-                File.Copy(path, path + ".bak");
-
-            if (mtdBND3 != null)
-            {
-                foreach (BND3.File entry in mtdBND3.Files)
-                {
-                    foreach (MTDItem item in cmbMTD.Items)
-                    {
-                        if (entry.Name == item.Name)
-                        {
-                            entry.Bytes = item.MTD.Write();
-                        }
-                    }
-                }
-                mtdBND3.Write(path);
-            }
-            else if (mtdBND4 != null)
-            {
-                foreach (BND4.File entry in mtdBND4.Files)
-                {
-                    foreach (MTDItem item in cmbMTD.Items)
-                    {
-                        if (entry.Name == item.Name)
-                        {
-                            entry.Bytes = item.MTD.Write();
-                        }
-                    }
-                }
-                mtdBND4.Write(path);
-            }
-            else
-            {
-                mtd.Write(path);
-            }
-
-            SystemSounds.Asterisk.Play();
-        }
-
-        private void cmbMTD_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dgvParams.Rows.Clear();
-            MTDItem item = cmbMTD.SelectedItem as MTDItem;
+            dgvParams.DataSource = null;
+            dgvTextures.DataSource = null;
+            MTDWrapper item = cmbMTD.SelectedItem as MTDWrapper;
             mtd = item.MTD;
             LoadMTD(mtd);
         }
@@ -268,170 +171,245 @@ namespace MTD_Editor
             txtShader.DataBindings.Add("Text", mtd, "ShaderPath");
 
             dgvTextures.DataSource = mtd.Textures;
+            bool extended = mtd.Textures.Any(t => t.Extended);
+            dgvTexturesFloatsCol.Visible = extended;
+            dgvTexturesPathCol.Visible = extended;
 
-            foreach (MTD.Param param in mtd.Params)
+            dgvParams.DataSource = mtd.Params;
+        }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.Cells.Add(new DataGridViewTextBoxCell());
-                row.Cells[0].Value = param.Name;
-                row.Cells.Add(new DataGridViewTextBoxCell());
-                row.Cells[1].Value = param.Type;
+                ofdOpenMTD.InitialDirectory = Path.GetDirectoryName(Path.GetFullPath(mtdPath));
+            }
+            catch (ArgumentException) { }
 
-                if (param.Type == MTD.ParamType.Int)
-                {
-                    if (param.Name == "g_BlendMode")
-                    {
-                        DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
-                        foreach (MTD.BlendMode blendMode in Enum.GetValues(typeof(MTD.BlendMode)))
-                            cell.Items.Add(blendMode.ToString());
-                        cell.Value = Enum.GetName(typeof(MTD.BlendMode), (int)param.Value);
-                        row.Cells.Add(cell);
-                    }
-                    else if (param.Name == "g_LightingType")
-                    {
-                        DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
-                        foreach (MTD.LightingType lightingType in Enum.GetValues(typeof(MTD.LightingType)))
-                            cell.Items.Add(lightingType.ToString());
-                        cell.Value = Enum.GetName(typeof(MTD.LightingType), (int)param.Value);
-                        row.Cells.Add(cell);
-                    }
-                    else
-                    {
-                        row.Cells.Add(new DataGridViewTextBoxCell());
-                        row.Cells[2].Value = ((int)param.Value).ToString();
-                    }
-                }
-                else if (param.Type == MTD.ParamType.Int2)
-                {
-                    row.Cells.Add(new DataGridViewTextBoxCell());
-                    List<string> ints = new List<string>();
-                    foreach (int i in (int[])param.Value)
-                        ints.Add(i.ToString());
-                    row.Cells[2].Value = string.Join(", ", ints);
-                }
-                else if (param.Type == MTD.ParamType.Bool)
-                {
-                    row.Cells.Add(new DataGridViewCheckBoxCell());
-                    row.Cells[2].Value = (bool)param.Value;
-                }
-                else if (param.Type == MTD.ParamType.Float)
-                {
-                    row.Cells.Add(new DataGridViewTextBoxCell());
-                    row.Cells[2].Value = ((float)param.Value).ToString("0.0##");
-                }
-                else if (param.Type == MTD.ParamType.Float2
-                    || param.Type == MTD.ParamType.Float3
-                    || param.Type == MTD.ParamType.Float4)
-                {
-                    row.Cells.Add(new DataGridViewTextBoxCell());
-                    List<string> floats = new List<string>();
-                    foreach (float f in (float[])param.Value)
-                        floats.Add(f.ToString("0.0##"));
-                    row.Cells[2].Value = string.Join(", ", floats);
-                }
-
-                dgvParams.Rows.Add(row);
+            if (ofdOpenMTD.ShowDialog() == DialogResult.OK)
+            {
+                mtdPath = ofdOpenMTD.FileName;
+                LoadFile(mtdPath);
             }
         }
 
-        private void dgvMTD_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dgvParams.Columns[e.ColumnIndex].HeaderText == "Value" && mtd != null)
+            if (!File.Exists(mtdPath + ".bak"))
+                File.Copy(mtdPath, mtdPath + ".bak");
+
+            if (mtdBnd != null)
             {
-                object value = e.FormattedValue;
-                string valueName = (string)dgvParams.Rows[e.RowIndex].Cells[0].Value;
-                foreach (MTD.Param entry in mtd.Params)
+                foreach (BinderFile entry in mtdBnd.Files)
                 {
-                    if (entry.Name == valueName)
+                    foreach (MTDWrapper item in cmbMTD.Items)
                     {
-                        if (entry.Type == MTD.ParamType.Int)
+                        if (entry.Name == item.Name)
                         {
-                            if (valueName != "g_BlendMode" && valueName != "g_LightingType")
-                                e.Cancel = !int.TryParse((string)value, out _);
+                            entry.Bytes = item.MTD.Write();
                         }
-                        else if (entry.Type == MTD.ParamType.Int2)
-                            e.Cancel = ValidateInts((string)value, 2);
-                        else if (entry.Type == MTD.ParamType.Float)
-                            e.Cancel = !float.TryParse((string)value, out _);
-                        else if (entry.Type == MTD.ParamType.Float2)
-                            e.Cancel = ValidateFloats((string)value, 2);
-                        else if (entry.Type == MTD.ParamType.Float3)
-                            e.Cancel = ValidateFloats((string)value, 3);
-                        else if (entry.Type == MTD.ParamType.Float4)
-                            e.Cancel = ValidateFloats((string)value, 4);
-                        break;
                     }
+                }
+
+                if (mtdBnd is BND3 bnd3)
+                    bnd3.Write(mtdPath);
+                else if (mtdBnd is BND4 bnd4)
+                    bnd4.Write(mtdPath);
+            }
+            else
+            {
+                mtd.Write(mtdPath);
+            }
+
+            SystemSounds.Asterisk.Play();
+        }
+
+        private void RestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(mtdPath + ".bak"))
+            {
+                File.Delete(mtdPath);
+                File.Move(mtdPath + ".bak", mtdPath);
+                LoadFile(mtdPath);
+            }
+
+            SystemSounds.Asterisk.Play();
+        }
+
+        private void ExploreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(Path.GetDirectoryName(Path.GetFullPath(mtdPath)));
+            }
+            catch
+            {
+                SystemSounds.Hand.Play();
+            }
+        }
+
+        private void UpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(UPDATE_URL);
+        }
+
+        #region dgvTextures
+        private void DgvTextures_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value is List<float> floats)
+            {
+                e.Value = string.Join(", ", floats.Select(f => f.ToString("0.0##")));
+                e.FormattingApplied = true;
+            }
+        }
+
+        private void DgvTextures_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (dgvTextures.Columns[e.ColumnIndex].ValueType == typeof(List<float>))
+                e.Cancel = !TryParseFloats((string)e.FormattedValue, 2, out _);
+
+            if (e.Cancel)
+                SystemSounds.Hand.Play();
+        }
+
+        private void DgvTextures_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            if (e.DesiredType == typeof(List<float>))
+            {
+                TryParseFloats((string)e.Value, 2, out float[] floats);
+                e.Value = new List<float>(floats);
+                e.ParsingApplied = true;
+            }
+        }
+        #endregion
+
+        #region dgvParams
+        private void DgvParams_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgvParams.Rows)
+            {
+                var param = (MTD.Param)row.DataBoundItem;
+                if (param.Type == MTD.ParamType.Bool)
+                {
+                    row.Cells[2] = new DataGridViewCheckBoxCell();
+                }
+                else if (param.Name == "g_BlendMode")
+                {
+                    var cell = new DataGridViewComboBoxCell();
+                    cell.DataSource = EnumWrapper.Wrap(typeof(MTD.BlendMode));
+                    cell.DisplayMember = "Name";
+                    cell.ValueMember = "Value";
+                    row.Cells[2] = cell;
+                }
+                else if (param.Name == "g_LightingType")
+                {
+                    var cell = new DataGridViewComboBoxCell();
+                    cell.DataSource = EnumWrapper.Wrap(typeof(MTD.LightingType));
+                    cell.DisplayMember = "Name";
+                    cell.ValueMember = "Value";
+                    row.Cells[2] = cell;
                 }
             }
         }
 
-        private bool ValidateInts(string value, int count)
+        private void DgvParams_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            string[] values = Regex.Split(value, @"\s*,\s*");
-            if (values.Length != count)
-                return true;
+            if (e.ColumnIndex != 2)
+                return;
 
-            foreach (string i in values)
-                if (!int.TryParse(i, out _))
-                    return true;
-
-            return false;
-        }
-
-        private bool ValidateFloats(string value, int count)
-        {
-            string[] values = Regex.Split(value, @"\s*,\s*");
-            if (values.Length != count)
-                return true;
-
-            foreach (string f in values)
-                if (!float.TryParse(f, out _))
-                    return true;
-
-            return false;
-        }
-
-        private void dgvMTD_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
             DataGridViewRow row = dgvParams.Rows[e.RowIndex];
-            object value = row.Cells[e.ColumnIndex].Value;
-            string valueName = (string)row.Cells[0].Value;
-            foreach (MTD.Param entry in mtd.Params)
+            var param = (MTD.Param)row.DataBoundItem;
+            if (e.Value is int[] ints)
             {
-                if (entry.Name == valueName)
-                {
-                    if (entry.Type == MTD.ParamType.Int)
-                    {
-                        if (valueName == "g_BlendMode")
-                            entry.Value = (int)Enum.Parse(typeof(MTD.BlendMode), (string)value);
-                        else if (valueName == "g_LightingType")
-                            entry.Value = (int)Enum.Parse(typeof(MTD.LightingType), (string)value);
-                        else
-                            entry.Value = Int32.Parse((string)value);
-                    }
-                    else if (entry.Type == MTD.ParamType.Int2)
-                    {
-                        string[] values = Regex.Split((string)value, @"\s*,\s*");
-                        int[] result = new int[values.Length];
-                        for (int i = 0; i < values.Length; i++)
-                            result[i] = Int32.Parse(values[i]);
-                        entry.Value = result;
-                    }
-                    else if (entry.Type == MTD.ParamType.Bool)
-                        entry.Value = (bool)value;
-                    else if (entry.Type == MTD.ParamType.Float)
-                        entry.Value = Single.Parse((string)value);
-                    else if (entry.Type == MTD.ParamType.Float2
-                        || entry.Type == MTD.ParamType.Float3
-                        || entry.Type == MTD.ParamType.Float4)
-                    {
-                        string[] values = Regex.Split((string)value, @"\s*,\s*");
-                        float[] result = new float[values.Length];
-                        for (int i = 0; i < values.Length; i++)
-                            result[i] = Single.Parse(values[i]);
-                        entry.Value = result;
-                    }
-                }
+                e.Value = string.Join(", ", ints.Select(i => i.ToString()));
+                e.FormattingApplied = true;
+            }
+            else if (e.Value is float[] floats)
+            {
+                e.Value = string.Join(", ", floats.Select(f => f.ToString("0.0##")));
+                e.FormattingApplied = true;
+            }
+        }
+
+        private void DgvParams_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex != 2)
+                return;
+
+            DataGridViewRow row = dgvParams.Rows[e.RowIndex];
+            var param = (MTD.Param)row.DataBoundItem;
+            if (param.Type == MTD.ParamType.Int2)
+                e.Cancel = !TryParseInts((string)e.FormattedValue, 2, out _);
+            else if (param.Type == MTD.ParamType.Float2)
+                e.Cancel = !TryParseFloats((string)e.FormattedValue, 2, out _);
+            else if (param.Type == MTD.ParamType.Float3)
+                e.Cancel = !TryParseFloats((string)e.FormattedValue, 3, out _);
+            else if (param.Type == MTD.ParamType.Float4)
+                e.Cancel = !TryParseFloats((string)e.FormattedValue, 4, out _);
+
+            if (e.Cancel)
+                SystemSounds.Hand.Play();
+        }
+
+        private void DgvParams_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            if (e.ColumnIndex != 2)
+                return;
+
+            DataGridViewRow row = dgvParams.Rows[e.RowIndex];
+            var param = (MTD.Param)row.DataBoundItem;
+            if (param.Type == MTD.ParamType.Int2)
+            {
+                TryParseInts((string)e.Value, 2, out int[] ints);
+                e.Value = ints;
+                e.ParsingApplied = true;
+            }
+            else if (param.Type == MTD.ParamType.Float2)
+            {
+                TryParseFloats((string)e.Value, 2, out float[] floats);
+                e.Value = floats;
+                e.ParsingApplied = true;
+            }
+            else if (param.Type == MTD.ParamType.Float3)
+            {
+                TryParseFloats((string)e.Value, 3, out float[] floats);
+                e.Value = floats;
+                e.ParsingApplied = true;
+            }
+            else if (param.Type == MTD.ParamType.Float4)
+            {
+                TryParseFloats((string)e.Value, 4, out float[] floats);
+                e.Value = floats;
+                e.ParsingApplied = true;
+            }
+        }
+        #endregion
+
+        private bool TryParseInts(string text, int count, out int[] ints)
+        {
+            try
+            {
+                ints = text.Split(',').Select(s => int.Parse(s)).ToArray();
+                return ints.Length == count;
+            }
+            catch
+            {
+                ints = null;
+                return false;
+            }
+        }
+
+        private bool TryParseFloats(string text, int count, out float[] floats)
+        {
+            try
+            {
+                floats = text.Split(',').Select(s => float.Parse(s)).ToArray();
+                return floats.Length == count;
+            }
+            catch
+            {
+                floats = null;
+                return false;
             }
         }
 
@@ -439,23 +417,6 @@ namespace MTD_Editor
         {
             if (!silent)
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private class MTDItem
-        {
-            public MTD MTD;
-            public string Name;
-
-            public MTDItem(MTD mtd, string name)
-            {
-                MTD = mtd;
-                Name = name;
-            }
-
-            public override string ToString()
-            {
-                return Name;
-            }
         }
     }
 }

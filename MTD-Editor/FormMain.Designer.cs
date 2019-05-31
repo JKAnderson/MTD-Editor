@@ -29,223 +29,145 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label lblMTDPath;
-            System.Windows.Forms.Label lblMTD;
             System.Windows.Forms.Label lblDescription;
             System.Windows.Forms.Label lblShader;
             System.Windows.Forms.Label lblDescriptionTranslated;
-            System.Windows.Forms.Label lblParams;
-            System.Windows.Forms.Label lblTextures;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.txtMTDPath = new System.Windows.Forms.TextBox();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.dgvParams = new System.Windows.Forms.DataGridView();
-            this.MTDInternalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MTDInternalType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MTDInternalValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbMTD = new System.Windows.Forms.ComboBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtShader = new System.Windows.Forms.TextBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.btnExplore = new System.Windows.Forms.Button();
             this.txtDescriptionTranslated = new System.Windows.Forms.TextBox();
             this.ofdOpenMTD = new System.Windows.Forms.OpenFileDialog();
-            this.btnRestore = new System.Windows.Forms.Button();
-            this.llbUpdate = new System.Windows.Forms.LinkLabel();
-            this.lblUpdate = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dgvTextures = new System.Windows.Forms.DataGridView();
-            this.dgvTextureColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            lblMTDPath = new System.Windows.Forms.Label();
-            lblMTD = new System.Windows.Forms.Label();
+            this.dgvTexturesTextureCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesPathCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesUVCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesShaderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTexturesFloatsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusStripMTDPath = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exploreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.MTDInternalType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MTDInternalName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MTDInternalValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lblDescription = new System.Windows.Forms.Label();
             lblShader = new System.Windows.Forms.Label();
             lblDescriptionTranslated = new System.Windows.Forms.Label();
-            lblParams = new System.Windows.Forms.Label();
-            lblTextures = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTextures)).BeginInit();
+            this.statusStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblMTDPath
-            // 
-            lblMTDPath.AutoSize = true;
-            lblMTDPath.Location = new System.Drawing.Point(12, 9);
-            lblMTDPath.Name = "lblMTDPath";
-            lblMTDPath.Size = new System.Drawing.Size(83, 13);
-            lblMTDPath.TabIndex = 0;
-            lblMTDPath.Text = "mtd/mtdbnd File";
-            // 
-            // txtMTDPath
-            // 
-            this.txtMTDPath.AllowDrop = true;
-            this.txtMTDPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMTDPath.Location = new System.Drawing.Point(12, 25);
-            this.txtMTDPath.Name = "txtMTDPath";
-            this.txtMTDPath.Size = new System.Drawing.Size(580, 20);
-            this.txtMTDPath.TabIndex = 1;
-            this.txtMTDPath.Text = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\DARK SOULS REMASTERED\\mtd\\Mtd.mtdbn" +
-    "d.dcx";
-            this.txtMTDPath.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtMTDPath_DragDrop);
-            this.txtMTDPath.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtMTDPath_DragEnter);
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoad.Location = new System.Drawing.Point(517, 52);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(75, 23);
-            this.btnLoad.TabIndex = 2;
-            this.btnLoad.Text = "Load";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(598, 52);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // dgvParams
-            // 
-            this.dgvParams.AllowUserToAddRows = false;
-            this.dgvParams.AllowUserToDeleteRows = false;
-            this.dgvParams.AllowUserToResizeRows = false;
-            this.dgvParams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvParams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvParams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvParams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MTDInternalName,
-            this.MTDInternalType,
-            this.MTDInternalValue});
-            this.dgvParams.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvParams.Location = new System.Drawing.Point(418, 94);
-            this.dgvParams.Name = "dgvParams";
-            this.dgvParams.RowHeadersVisible = false;
-            this.dgvParams.Size = new System.Drawing.Size(336, 494);
-            this.dgvParams.TabIndex = 4;
-            this.dgvParams.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMTD_CellEndEdit);
-            this.dgvParams.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvMTD_CellValidating);
-            // 
-            // MTDInternalName
-            // 
-            this.MTDInternalName.HeaderText = "Name";
-            this.MTDInternalName.Name = "MTDInternalName";
-            this.MTDInternalName.ReadOnly = true;
-            // 
-            // MTDInternalType
-            // 
-            this.MTDInternalType.HeaderText = "Type";
-            this.MTDInternalType.Name = "MTDInternalType";
-            this.MTDInternalType.ReadOnly = true;
-            // 
-            // MTDInternalValue
-            // 
-            this.MTDInternalValue.HeaderText = "Value";
-            this.MTDInternalValue.Name = "MTDInternalValue";
-            // 
-            // cmbMTD
-            // 
-            this.cmbMTD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMTD.Enabled = false;
-            this.cmbMTD.FormattingEnabled = true;
-            this.cmbMTD.Location = new System.Drawing.Point(12, 94);
-            this.cmbMTD.Name = "cmbMTD";
-            this.cmbMTD.Size = new System.Drawing.Size(400, 21);
-            this.cmbMTD.TabIndex = 7;
-            this.cmbMTD.SelectedIndexChanged += new System.EventHandler(this.cmbMTD_SelectedIndexChanged);
-            // 
-            // lblMTD
-            // 
-            lblMTD.AutoSize = true;
-            lblMTD.Location = new System.Drawing.Point(12, 78);
-            lblMTD.Name = "lblMTD";
-            lblMTD.Size = new System.Drawing.Size(31, 13);
-            lblMTD.TabIndex = 8;
-            lblMTD.Text = "MTD";
             // 
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Location = new System.Drawing.Point(12, 118);
+            lblDescription.Location = new System.Drawing.Point(3, 27);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new System.Drawing.Size(60, 13);
             lblDescription.TabIndex = 9;
             lblDescription.Text = "Description";
             // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(12, 134);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescription.Size = new System.Drawing.Size(400, 62);
-            this.txtDescription.TabIndex = 10;
-            // 
-            // txtShader
-            // 
-            this.txtShader.Location = new System.Drawing.Point(12, 296);
-            this.txtShader.Name = "txtShader";
-            this.txtShader.Size = new System.Drawing.Size(400, 20);
-            this.txtShader.TabIndex = 12;
-            // 
             // lblShader
             // 
             lblShader.AutoSize = true;
-            lblShader.Location = new System.Drawing.Point(12, 280);
+            lblShader.Location = new System.Drawing.Point(3, 189);
             lblShader.Name = "lblShader";
             lblShader.Size = new System.Drawing.Size(41, 13);
             lblShader.TabIndex = 11;
             lblShader.Text = "Shader";
             // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowse.Location = new System.Drawing.Point(598, 23);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 13;
-            this.btnBrowse.Text = "Browse";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // btnExplore
-            // 
-            this.btnExplore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExplore.Location = new System.Drawing.Point(679, 23);
-            this.btnExplore.Name = "btnExplore";
-            this.btnExplore.Size = new System.Drawing.Size(75, 23);
-            this.btnExplore.TabIndex = 14;
-            this.btnExplore.Text = "Explore";
-            this.btnExplore.UseVisualStyleBackColor = true;
-            this.btnExplore.Click += new System.EventHandler(this.btnExplore_Click);
-            // 
             // lblDescriptionTranslated
             // 
             lblDescriptionTranslated.AutoSize = true;
-            lblDescriptionTranslated.Location = new System.Drawing.Point(12, 199);
+            lblDescriptionTranslated.Location = new System.Drawing.Point(3, 108);
             lblDescriptionTranslated.Name = "lblDescriptionTranslated";
             lblDescriptionTranslated.Size = new System.Drawing.Size(157, 13);
             lblDescriptionTranslated.TabIndex = 15;
             lblDescriptionTranslated.Text = "Machine Translated Description";
             // 
+            // dgvParams
+            // 
+            this.dgvParams.AllowUserToAddRows = false;
+            this.dgvParams.AllowUserToDeleteRows = false;
+            this.dgvParams.AllowUserToResizeColumns = false;
+            this.dgvParams.AllowUserToResizeRows = false;
+            this.dgvParams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvParams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MTDInternalType,
+            this.MTDInternalName,
+            this.MTDInternalValue});
+            this.dgvParams.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvParams.Location = new System.Drawing.Point(3, 3);
+            this.dgvParams.Name = "dgvParams";
+            this.dgvParams.RowHeadersVisible = false;
+            this.dgvParams.Size = new System.Drawing.Size(358, 535);
+            this.dgvParams.TabIndex = 4;
+            this.dgvParams.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvParams_CellFormatting);
+            this.dgvParams.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DgvParams_CellParsing);
+            this.dgvParams.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DgvParams_CellValidating);
+            this.dgvParams.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvParams_DataBindingComplete);
+            // 
+            // cmbMTD
+            // 
+            this.cmbMTD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbMTD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMTD.Enabled = false;
+            this.cmbMTD.FormattingEnabled = true;
+            this.cmbMTD.Location = new System.Drawing.Point(3, 3);
+            this.cmbMTD.Name = "cmbMTD";
+            this.cmbMTD.Size = new System.Drawing.Size(672, 21);
+            this.cmbMTD.TabIndex = 7;
+            this.cmbMTD.SelectedIndexChanged += new System.EventHandler(this.CmbMTD_SelectedIndexChanged);
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Location = new System.Drawing.Point(3, 43);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDescription.Size = new System.Drawing.Size(672, 62);
+            this.txtDescription.TabIndex = 10;
+            // 
+            // txtShader
+            // 
+            this.txtShader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtShader.Location = new System.Drawing.Point(3, 205);
+            this.txtShader.Name = "txtShader";
+            this.txtShader.Size = new System.Drawing.Size(672, 20);
+            this.txtShader.TabIndex = 12;
+            // 
             // txtDescriptionTranslated
             // 
-            this.txtDescriptionTranslated.Location = new System.Drawing.Point(12, 215);
+            this.txtDescriptionTranslated.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescriptionTranslated.Location = new System.Drawing.Point(3, 124);
             this.txtDescriptionTranslated.Multiline = true;
             this.txtDescriptionTranslated.Name = "txtDescriptionTranslated";
             this.txtDescriptionTranslated.ReadOnly = true;
             this.txtDescriptionTranslated.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescriptionTranslated.Size = new System.Drawing.Size(400, 62);
+            this.txtDescriptionTranslated.Size = new System.Drawing.Size(672, 62);
             this.txtDescriptionTranslated.TabIndex = 16;
             // 
             // ofdOpenMTD
@@ -254,147 +176,278 @@
             this.ofdOpenMTD.Filter = "MTD|*.mtd;*.mtd.dcx;*.*bnd;*.*bnd.dcx";
             this.ofdOpenMTD.Title = "Select an .mtd or .mtdbnd to open";
             // 
-            // btnRestore
-            // 
-            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestore.Location = new System.Drawing.Point(679, 52);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(75, 23);
-            this.btnRestore.TabIndex = 17;
-            this.btnRestore.Text = "Restore";
-            this.btnRestore.UseVisualStyleBackColor = true;
-            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
-            // 
-            // llbUpdate
-            // 
-            this.llbUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.llbUpdate.AutoSize = true;
-            this.llbUpdate.Location = new System.Drawing.Point(12, 597);
-            this.llbUpdate.Name = "llbUpdate";
-            this.llbUpdate.Size = new System.Drawing.Size(114, 13);
-            this.llbUpdate.TabIndex = 19;
-            this.llbUpdate.TabStop = true;
-            this.llbUpdate.Text = "New version available!";
-            this.llbUpdate.Visible = false;
-            this.llbUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbUpdate_LinkClicked);
-            // 
-            // lblUpdate
-            // 
-            this.lblUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUpdate.AutoSize = true;
-            this.lblUpdate.Location = new System.Drawing.Point(12, 597);
-            this.lblUpdate.Name = "lblUpdate";
-            this.lblUpdate.Size = new System.Drawing.Size(112, 13);
-            this.lblUpdate.TabIndex = 18;
-            this.lblUpdate.Text = "Checking for update...";
-            // 
-            // lblParams
-            // 
-            lblParams.AutoSize = true;
-            lblParams.Location = new System.Drawing.Point(415, 78);
-            lblParams.Name = "lblParams";
-            lblParams.Size = new System.Drawing.Size(42, 13);
-            lblParams.TabIndex = 20;
-            lblParams.Text = "Params";
-            // 
-            // lblTextures
-            // 
-            lblTextures.AutoSize = true;
-            lblTextures.Location = new System.Drawing.Point(12, 319);
-            lblTextures.Name = "lblTextures";
-            lblTextures.Size = new System.Drawing.Size(48, 13);
-            lblTextures.TabIndex = 21;
-            lblTextures.Text = "Textures";
-            // 
             // dgvTextures
             // 
             this.dgvTextures.AllowUserToAddRows = false;
             this.dgvTextures.AllowUserToDeleteRows = false;
             this.dgvTextures.AllowUserToResizeColumns = false;
             this.dgvTextures.AllowUserToResizeRows = false;
-            this.dgvTextures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvTextures.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTextures.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTextures.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTextures.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTextures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTextures.ColumnHeadersVisible = false;
             this.dgvTextures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvTextureColumn});
-            this.dgvTextures.Location = new System.Drawing.Point(12, 335);
+            this.dgvTexturesTextureCol,
+            this.dgvTexturesPathCol,
+            this.dgvTexturesUVCol,
+            this.dgvTexturesShaderCol,
+            this.dgvTexturesFloatsCol});
+            this.dgvTextures.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvTextures.Location = new System.Drawing.Point(3, 244);
             this.dgvTextures.Name = "dgvTextures";
-            this.dgvTextures.ReadOnly = true;
             this.dgvTextures.RowHeadersVisible = false;
             this.dgvTextures.ShowEditingIcon = false;
-            this.dgvTextures.Size = new System.Drawing.Size(400, 253);
+            this.dgvTextures.Size = new System.Drawing.Size(672, 294);
             this.dgvTextures.TabIndex = 22;
+            this.dgvTextures.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvTextures_CellFormatting);
+            this.dgvTextures.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DgvTextures_CellParsing);
+            this.dgvTextures.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DgvTextures_CellValidating);
             // 
-            // dgvTextureColumn
+            // dgvTexturesTextureCol
             // 
-            this.dgvTextureColumn.DataPropertyName = "Name";
-            this.dgvTextureColumn.HeaderText = "Texture";
-            this.dgvTextureColumn.Name = "dgvTextureColumn";
-            this.dgvTextureColumn.ReadOnly = true;
-            this.dgvTextureColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvTexturesTextureCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvTexturesTextureCol.DataPropertyName = "Type";
+            this.dgvTexturesTextureCol.HeaderText = "Texture";
+            this.dgvTexturesTextureCol.Name = "dgvTexturesTextureCol";
+            this.dgvTexturesTextureCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgvTexturesPathCol
+            // 
+            this.dgvTexturesPathCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvTexturesPathCol.DataPropertyName = "Path";
+            this.dgvTexturesPathCol.HeaderText = "Path";
+            this.dgvTexturesPathCol.Name = "dgvTexturesPathCol";
+            // 
+            // dgvTexturesUVCol
+            // 
+            this.dgvTexturesUVCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvTexturesUVCol.DataPropertyName = "UVNumber";
+            this.dgvTexturesUVCol.HeaderText = "UV Number";
+            this.dgvTexturesUVCol.Name = "dgvTexturesUVCol";
+            this.dgvTexturesUVCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvTexturesUVCol.Width = 68;
+            // 
+            // dgvTexturesShaderCol
+            // 
+            this.dgvTexturesShaderCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvTexturesShaderCol.DataPropertyName = "ShaderDataIndex";
+            this.dgvTexturesShaderCol.HeaderText = "Shader Data Index";
+            this.dgvTexturesShaderCol.Name = "dgvTexturesShaderCol";
+            this.dgvTexturesShaderCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvTexturesShaderCol.Width = 102;
+            // 
+            // dgvTexturesFloatsCol
+            // 
+            this.dgvTexturesFloatsCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvTexturesFloatsCol.DataPropertyName = "UnkFloats";
+            this.dgvTexturesFloatsCol.HeaderText = "Unknown Floats";
+            this.dgvTexturesFloatsCol.Name = "dgvTexturesFloatsCol";
+            this.dgvTexturesFloatsCol.Width = 109;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStripMTDPath});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 565);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1046, 22);
+            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.TabIndex = 23;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusStripMTDPath
+            // 
+            this.statusStripMTDPath.Name = "statusStripMTDPath";
+            this.statusStripMTDPath.Size = new System.Drawing.Size(76, 17);
+            this.statusStripMTDPath.Text = "<MTD path>";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.updateToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1046, 24);
+            this.menuStrip1.TabIndex = 24;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.restoreToolStripMenuItem,
+            this.exploreToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            // 
+            // restoreToolStripMenuItem
+            // 
+            this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
+            this.restoreToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.restoreToolStripMenuItem.Text = "&Restore";
+            this.restoreToolStripMenuItem.Click += new System.EventHandler(this.RestoreToolStripMenuItem_Click);
+            // 
+            // exploreToolStripMenuItem
+            // 
+            this.exploreToolStripMenuItem.Name = "exploreToolStripMenuItem";
+            this.exploreToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.exploreToolStripMenuItem.Text = "Explore";
+            this.exploreToolStripMenuItem.Click += new System.EventHandler(this.ExploreToolStripMenuItem_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.updateToolStripMenuItem.BackColor = System.Drawing.Color.Yellow;
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.ToolTipText = "An update is available! Click to download it.";
+            this.updateToolStripMenuItem.Visible = false;
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.UpdateToolStripMenuItem_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.cmbMTD);
+            this.splitContainer1.Panel1.Controls.Add(lblDescription);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvTextures);
+            this.splitContainer1.Panel1.Controls.Add(this.txtDescription);
+            this.splitContainer1.Panel1.Controls.Add(lblShader);
+            this.splitContainer1.Panel1.Controls.Add(this.txtShader);
+            this.splitContainer1.Panel1.Controls.Add(this.txtDescriptionTranslated);
+            this.splitContainer1.Panel1.Controls.Add(lblDescriptionTranslated);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dgvParams);
+            this.splitContainer1.Size = new System.Drawing.Size(1046, 541);
+            this.splitContainer1.SplitterDistance = 678;
+            this.splitContainer1.TabIndex = 25;
+            // 
+            // MTDInternalType
+            // 
+            this.MTDInternalType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.MTDInternalType.DataPropertyName = "Type";
+            this.MTDInternalType.HeaderText = "Type";
+            this.MTDInternalType.Name = "MTDInternalType";
+            this.MTDInternalType.ReadOnly = true;
+            this.MTDInternalType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MTDInternalType.Width = 37;
+            // 
+            // MTDInternalName
+            // 
+            this.MTDInternalName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MTDInternalName.DataPropertyName = "Name";
+            this.MTDInternalName.HeaderText = "Param";
+            this.MTDInternalName.Name = "MTDInternalName";
+            this.MTDInternalName.ReadOnly = true;
+            this.MTDInternalName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // MTDInternalValue
+            // 
+            this.MTDInternalValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.MTDInternalValue.DataPropertyName = "Value";
+            this.MTDInternalValue.HeaderText = "Value";
+            this.MTDInternalValue.MinimumWidth = 110;
+            this.MTDInternalValue.Name = "MTDInternalValue";
+            this.MTDInternalValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MTDInternalValue.Width = 110;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 626);
-            this.Controls.Add(this.dgvTextures);
-            this.Controls.Add(lblTextures);
-            this.Controls.Add(lblParams);
-            this.Controls.Add(this.btnRestore);
-            this.Controls.Add(this.txtDescriptionTranslated);
-            this.Controls.Add(lblDescriptionTranslated);
-            this.Controls.Add(this.btnExplore);
-            this.Controls.Add(this.btnBrowse);
-            this.Controls.Add(this.txtShader);
-            this.Controls.Add(lblShader);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(lblDescription);
-            this.Controls.Add(lblMTD);
-            this.Controls.Add(this.cmbMTD);
-            this.Controls.Add(this.dgvParams);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.txtMTDPath);
-            this.Controls.Add(lblMTDPath);
-            this.Controls.Add(this.llbUpdate);
-            this.Controls.Add(this.lblUpdate);
+            this.ClientSize = new System.Drawing.Size(1046, 587);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(365, 540);
             this.Name = "FormMain";
             this.Text = "MTD Editor <version>";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.dgvParams)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTextures)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtMTDPath;
-        private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dgvParams;
         private System.Windows.Forms.ComboBox cmbMTD;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtShader;
-        private System.Windows.Forms.Button btnBrowse;
-        private System.Windows.Forms.Button btnExplore;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalValue;
         private System.Windows.Forms.TextBox txtDescriptionTranslated;
         private System.Windows.Forms.OpenFileDialog ofdOpenMTD;
-        private System.Windows.Forms.Button btnRestore;
-        private System.Windows.Forms.LinkLabel llbUpdate;
-        private System.Windows.Forms.Label lblUpdate;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridView dgvTextures;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTextureColumn;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusStripMTDPath;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exploreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesTextureCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesPathCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesUVCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesShaderCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesFloatsCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MTDInternalValue;
     }
 }
 
