@@ -5,6 +5,9 @@ In order to open Sekiro files, you must copy oo2core_6_win64.dll from Sekiro int
 Requires [.NET 4.7.2](https://www.microsoft.com/net/download/thank-you/net472) - Windows 10 users should already have this.  
 
 # Changelog
+### 1.2.1
+* Fix problem when saving certain edited params
+
 ### 1.2
 * Sekiro is supported
 * Textures are editable

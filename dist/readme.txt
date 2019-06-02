@@ -1,5 +1,5 @@
 
---| MTD Editor 1.2
+--| MTD Editor 1.2.1
 --| By TKGP
 --| https://github.com/JKAnderson/MTD-Editor
 
@@ -11,6 +11,9 @@ Windows 10 users should already have this.
 
 
 --| Changelog
+
+1.2.1
+	Fix problem when saving certain edited params
 
 1.2
 	Sekiro is supported

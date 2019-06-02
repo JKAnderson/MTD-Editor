@@ -35,6 +35,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.dgvParams = new System.Windows.Forms.DataGridView();
+            this.dgvParamsTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvParamsNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvParamsValueCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbMTD = new System.Windows.Forms.ComboBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtShader = new System.Windows.Forms.TextBox();
@@ -57,9 +60,6 @@
             this.dgvTexturesUVCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTexturesShaderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTexturesFloatsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvParamsTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvParamsNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvParamsValueCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lblDescription = new System.Windows.Forms.Label();
             lblShader = new System.Windows.Forms.Label();
             lblDescriptionTranslated = new System.Windows.Forms.Label();
@@ -124,6 +124,35 @@
             this.dgvParams.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this.DgvParams_CellParsing);
             this.dgvParams.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.DgvParams_CellValidating);
             this.dgvParams.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvParams_DataBindingComplete);
+            // 
+            // dgvParamsTypeCol
+            // 
+            this.dgvParamsTypeCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvParamsTypeCol.DataPropertyName = "Type";
+            this.dgvParamsTypeCol.HeaderText = "Type";
+            this.dgvParamsTypeCol.Name = "dgvParamsTypeCol";
+            this.dgvParamsTypeCol.ReadOnly = true;
+            this.dgvParamsTypeCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvParamsTypeCol.Width = 37;
+            // 
+            // dgvParamsNameCol
+            // 
+            this.dgvParamsNameCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvParamsNameCol.DataPropertyName = "Name";
+            this.dgvParamsNameCol.HeaderText = "Param";
+            this.dgvParamsNameCol.Name = "dgvParamsNameCol";
+            this.dgvParamsNameCol.ReadOnly = true;
+            this.dgvParamsNameCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dgvParamsValueCol
+            // 
+            this.dgvParamsValueCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvParamsValueCol.DataPropertyName = "Value";
+            this.dgvParamsValueCol.HeaderText = "Value";
+            this.dgvParamsValueCol.MinimumWidth = 110;
+            this.dgvParamsValueCol.Name = "dgvParamsValueCol";
+            this.dgvParamsValueCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvParamsValueCol.Width = 110;
             // 
             // cmbMTD
             // 
@@ -361,35 +390,6 @@
             this.dgvTexturesFloatsCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dgvTexturesFloatsCol.Width = 90;
             // 
-            // dgvParamsTypeCol
-            // 
-            this.dgvParamsTypeCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvParamsTypeCol.DataPropertyName = "Type";
-            this.dgvParamsTypeCol.HeaderText = "Type";
-            this.dgvParamsTypeCol.Name = "dgvParamsTypeCol";
-            this.dgvParamsTypeCol.ReadOnly = true;
-            this.dgvParamsTypeCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgvParamsTypeCol.Width = 37;
-            // 
-            // dgvParamsNameCol
-            // 
-            this.dgvParamsNameCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvParamsNameCol.DataPropertyName = "Name";
-            this.dgvParamsNameCol.HeaderText = "Param";
-            this.dgvParamsNameCol.Name = "dgvParamsNameCol";
-            this.dgvParamsNameCol.ReadOnly = true;
-            this.dgvParamsNameCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dgvParamsValueCol
-            // 
-            this.dgvParamsValueCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvParamsValueCol.DataPropertyName = "Value";
-            this.dgvParamsValueCol.HeaderText = "Value";
-            this.dgvParamsValueCol.MinimumWidth = 110;
-            this.dgvParamsValueCol.Name = "dgvParamsValueCol";
-            this.dgvParamsValueCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dgvParamsValueCol.Width = 110;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,14 +442,14 @@
         private System.Windows.Forms.ToolStripMenuItem exploreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsTypeCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsValueCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesTextureCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesPathCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesUVCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesShaderCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTexturesFloatsCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsTypeCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvParamsValueCol;
     }
 }
 

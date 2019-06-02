@@ -309,6 +309,10 @@ namespace MTD_Editor
                     cell.ValueMember = "Value";
                     row.Cells[2] = cell;
                 }
+                else
+                {
+                    row.Cells[2].ValueType = param.Value.GetType();
+                }
             }
         }
 
