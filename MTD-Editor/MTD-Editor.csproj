@@ -107,7 +107,7 @@
     <Content Include="Resources\Translations.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SoulsFormats\SoulsFormats\SoulsFormats.csproj">
+    <ProjectReference Include="..\SoulsFormats\SoulsFormats\SoulsFormats.csproj">
       <Project>{22c664bd-877b-44df-8ecf-2808522469a8}</Project>
       <Name>SoulsFormats</Name>
     </ProjectReference>
